@@ -2,7 +2,6 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import { formatPrice, formatPhoneNumber } from "@/utils/tools";
-import PlaceBidModal from "@/components/modals/PlaceBidModal.vue";
 
 const settingsStore = useSettingsStore();
 const { $axiosPlugin } = useNuxtApp();
@@ -23,10 +22,6 @@ const {
     throw new Error("Failed to fetch products");
   }
 });
-
-function handlePlaceBid() {
-  settingsStore.placeBidModal = true;
-}
 
 // getProductDetail();
 </script>
@@ -164,11 +159,5 @@ function handlePlaceBid() {
       </div>
     </div>
   </div>
-
-  <UiHLoader v-if="loader" />
-  <PlaceBidModal
-    v-if="settingsStore.placeBidModal"
-    :productInfo="productDetail"
-  />
 </template>
 <style lang="scss" scoped></style>

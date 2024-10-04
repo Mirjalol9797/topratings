@@ -1,11 +1,4 @@
 <script setup>
-import { onMounted } from "vue";
-// import { GoogleSignInButton } from "vue3-google-signin";
-import authGmailModal from "../auth/authGmailModal.vue";
-import { useRoute, useRouter } from "vue-router";
-
-const route = useRoute();
-const router = useRouter();
 const { locales, locale, setLocale } = useI18n();
 
 const localeView = computed(() =>
@@ -15,38 +8,6 @@ const localeView = computed(() =>
 function language(value) {
   setLocale(value);
 }
-
-const authStore = useAuthStore();
-// handle success event
-const handleLoginSuccess = async (response) => {
-  const { credential } = response;
-  let user;
-
-  if (credential) {
-    user = await $fetch("/api/google-login", {
-      method: "POST",
-      body: {
-        token: credential,
-      },
-    });
-  }
-
-  console.log("user", user);
-  console.log("Access Token", credential);
-};
-
-// handle an error event
-const handleLoginError = () => {
-  console.error("Login failed");
-};
-
-const settingsStore = useSettingsStore();
-
-onMounted(() => {
-  if (route.query.user_modal == "true") {
-    navigateTo("/login");
-  }
-});
 </script>
 
 <template>
@@ -60,11 +21,6 @@ onMounted(() => {
           Top Rankings
         </nuxt-link>
         <div class="flex">
-          <!-- <GoogleSignInButton
-            @success="handleLoginSuccess"
-            @error="handleLoginError"
-            v-if="false"
-          ></GoogleSignInButton> -->
           <div class="mr-6 flex relative language-view">
             <div class="text-white font-semibold flex-center">
               <span>{{ localeView[0].name }}</span>
@@ -84,8 +40,6 @@ onMounted(() => {
       </div>
     </div>
   </header>
-
-  <authGmailModal v-if="settingsStore.authGmailModal" />
 </template>
 
 <style lang="scss" scoped>

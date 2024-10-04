@@ -3,7 +3,6 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 const settingsStore = useSettingsStore();
-const platform = useNuxtApp().$platform;
 </script>
 
 <template>
