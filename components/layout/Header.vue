@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted } from "vue";
 const { locales, locale, setLocale } = useI18n();
 
 const localeView = computed(() =>
@@ -8,6 +9,31 @@ const localeView = computed(() =>
 function language(value) {
   setLocale(value);
 }
+
+// new language
+
+const selectedLanguage = ref("uz"); // По умолчанию узбекский
+
+// Проверка, если находимся на клиентской стороне
+const checkLocalStorage = () => {
+  if (process.client) {
+    // Проверяем, есть ли сохранённый язык в localStorage
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) {
+      selectedLanguage.value = savedLanguage;
+    }
+  }
+};
+
+const changeLanguage = () => {
+  if (process.client) {
+    localStorage.setItem("selectedLanguage", selectedLanguage.value);
+    location.reload(); // Перезагружаем страницу для применения изменений
+  }
+};
+
+// Вызываем проверку localStorage только на клиенте
+onMounted(checkLocalStorage);
 </script>
 
 <template>
@@ -22,10 +48,10 @@ function language(value) {
         </nuxt-link>
         <div class="flex">
           <div class="mr-6 flex relative language-view">
-            <div class="text-white font-semibold flex-center">
+            <div class="text-white font-semibold flex-center !hidden">
               <span>{{ localeView[0].name }}</span>
             </div>
-            <ul class="language-list text-[#0f0f0f]">
+            <ul class="language-list text-[#0f0f0f] !hidden">
               <li
                 v-for="(item, key) in locales"
                 :key="key"
@@ -35,6 +61,18 @@ function language(value) {
                 {{ item.name }}
               </li>
             </ul>
+            <div class="language-selector text-[#0f0f0f]">
+              <label for="language">Language:</label>
+              <select
+                id="language"
+                v-model="selectedLanguage"
+                @change="changeLanguage"
+              >
+                <option value="uz">O‘zbek</option>
+                <option value="ru">Русский</option>
+                <option value="en">English</option>
+              </select>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,24 @@
 <script setup>
-const news = await $fetch("/api/news");
+import { ref, onMounted } from "vue";
+const news = ref([]);
+const selectedLanguage = ref("uz"); // По умолчанию узбекский
+
+// Функция для получения данных с API
+const fetchNews = async () => {
+  news.value = await $fetch(`/api/news/${selectedLanguage.value}`);
+};
+
+onMounted(() => {
+  // Проверяем, если это клиентская сторона
+  if (process.client) {
+    const savedLanguage = localStorage.getItem("selectedLanguage");
+    if (savedLanguage) {
+      selectedLanguage.value = savedLanguage;
+    }
+    fetchNews(); // Загружаем данные новостей с выбранным языком только на клиентской стороне
+  }
+});
+
 console.log(news);
 </script>
 
@@ -28,9 +47,9 @@ console.log(news);
                     loading="lazy"
                     format="webp"
                   />
-                  <div>
-                    {{ item.title }}
-                  </div>
+                </div>
+                <div>
+                  {{ item.title }}
                 </div>
               </SwiperSlide>
             </Swiper>
