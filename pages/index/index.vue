@@ -1,25 +1,23 @@
 <script setup>
 import { ref, onMounted } from "vue";
-const news = ref([]);
-const selectedLanguage = ref("uz"); // По умолчанию узбекский
+const news = ref(null);
 
 // Функция для получения данных с API
 const fetchNews = async () => {
-  news.value = await $fetch(`/api/news/${selectedLanguage.value}`);
+  news.value = await $fetch("http://127.0.0.1:8000/api/contacts/", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      lang: "ru", // Устанавливаем язык
+    },
+  });
 };
 
 onMounted(() => {
-  // Проверяем, если это клиентская сторона
-  if (process.client) {
-    const savedLanguage = localStorage.getItem("selectedLanguage");
-    if (savedLanguage) {
-      selectedLanguage.value = savedLanguage;
-    }
-    fetchNews(); // Загружаем данные новостей с выбранным языком только на клиентской стороне
-  }
+  fetchNews();
 });
 
-console.log(news);
+console.log("news", news.value);
 </script>
 
 <template>
