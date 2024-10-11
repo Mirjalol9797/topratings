@@ -212,12 +212,23 @@ const news = ref(null);
               </nuxt-link>
             </div>
             <div class="grid grid-cols-2 gap-8 mb-5">
-              <nuxt-link to="/" class="relative">
+              <nuxt-link
+                v-for="(item, index) in 2"
+                :key="index"
+                to="/"
+                class="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)] after:rounded-md"
+              >
                 <img
                   src="https://daryo.uz/static/2024/10/thumb-6708cd0177a88.jpg"
                   alt=""
+                  class="rounded-md"
                 />
-                <div class="absolute"></div>
+                <div
+                  class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 font-medium"
+                >
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Beatae, deleniti!
+                </div>
               </nuxt-link>
             </div>
             <div class="grid grid-cols-2 gap-8 mb-5">
