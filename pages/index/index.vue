@@ -1,5 +1,10 @@
 <script setup>
 import { ref, onMounted } from "vue";
+
+// components
+import SliderBanner from "./modules/SliderBanner.vue";
+import BannerBottomBlock from "./modules/BannerBottomBlock.vue";
+
 const news = ref(null);
 </script>
 
@@ -9,77 +14,10 @@ const news = ref(null);
       <div class="flex">
         <div class="w-[65%]">
           <!-- slider banner -->
-          <div class="mb-5">
-            <Swiper
-              :modules="[SwiperAutoplay, SwiperEffectFade]"
-              :slides-per-view="1"
-              :loop="true"
-              :autoplay="{
-                delay: 4000,
-                disableOnInteraction: true,
-              }"
-              :effect="'fade'"
-            >
-              <SwiperSlide>
-                <nuxt-link
-                  to="/"
-                  class="relative after:content-['*'] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)]"
-                >
-                  <div class="mx-auto h-[460px]">
-                    <NuxtImg
-                      src="https://daryo.uz/static/2024/10/6708a9ab0401d.jpg"
-                      alt="item"
-                      class="w-full h-full object-cover"
-                      loading="lazy"
-                      format="webp"
-                    />
-                  </div>
-                  <div
-                    class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 text-2xl"
-                  >
-                    news name
-                  </div>
-                </nuxt-link>
-              </SwiperSlide>
-              <SwiperSlide>
-                <nuxt-link
-                  to="/"
-                  class="relative after:content-['*'] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)]"
-                >
-                  <div class="mx-auto h-[460px]">
-                    <NuxtImg
-                      src="https://daryo.uz/static/2024/10/little-67069f45c6c94.jpg"
-                      alt="item"
-                      class="w-full h-full object-cover"
-                      loading="lazy"
-                      format="webp"
-                    />
-                  </div>
-                  <div
-                    class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 text-2xl"
-                  >
-                    news name
-                  </div>
-                </nuxt-link>
-              </SwiperSlide>
-            </Swiper>
-          </div>
+          <SliderBanner />
 
           <!-- banner bottom block -->
-          <div class="flex gap-6">
-            <nuxt-link to="/" v-for="(item, index) in 5" :key="index">
-              <img
-                src="https://daryo.uz/static/2024/10/thumb-6707f3ef83099.jpg"
-                alt=""
-                title=""
-                class="mb-2"
-              />
-              <h2 class="text-mini-3">
-                Namanganda o‘zganing nomiga 40 mln so‘m kredit rasmiylashtirib,
-                pullarni o‘zlashtirgan shaxs ushlandi
-              </h2>
-            </nuxt-link>
-          </div>
+          <BannerBottomBlock />
 
           <!-- Игры и Киберспорт -->
           <div class="main-page-category">
