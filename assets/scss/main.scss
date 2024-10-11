@@ -17,6 +17,13 @@ body {
   font-size: 14px;
   line-height: 20px;
 }
+
+a {
+  transition: all 0.3s ease;
+  &:hover {
+    color: #315efb;
+  }
+}
 #__nuxt {
   display: flex;
   flex-direction: column;
@@ -182,4 +189,39 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.text-mini-3 {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main-page-category {
+  margin-top: 40px;
+
+  &-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    position: relative;
+    border-bottom: 1px solid #e2e2e2;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: #315efb;
+      left: 0;
+      bottom: -1px;
+    }
+  }
 }
