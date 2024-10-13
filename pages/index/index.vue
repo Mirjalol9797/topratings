@@ -4,6 +4,10 @@ import { ref, onMounted } from "vue";
 // components
 import SliderBanner from "./modules/SliderBanner.vue";
 import BannerBottomBlock from "./modules/BannerBottomBlock.vue";
+import CategoryLeftMain from "./modules/CategoryLeftMain.vue";
+import CategoryRightMain from "./modules/CategoryRightMain.vue";
+import CategoryDoubleTopMain from "./modules/CategoryDoubleTopMain.vue";
+import CategoryNotMain from "./modules/CategoryNotMain.vue";
 
 const news = ref(null);
 </script>
@@ -20,176 +24,30 @@ const news = ref(null);
           <BannerBottomBlock />
 
           <!-- Игры и Киберспорт -->
-          <div class="main-page-category">
-            <div class="main-page-category-title-wrap">
-              <h2 class="text-lg">Игры и Киберспорт</h2>
-              <nuxt-link
-                to="/"
-                class="flex justify-center text-xs text-[#315efb] font-medium"
-              >
-                Barcha habarlar
-              </nuxt-link>
-            </div>
-            <div class="flex gap-8 mb-5">
-              <nuxt-link to="/" class="w-1/2">
-                <img
-                  src="https://daryo.uz/static/2024/10/thumb-6708d23fae76a.jpg"
-                  alt=""
-                  title=""
-                  class="mb-4"
-                />
-                <h3>
-                  Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
-                </h3>
-              </nuxt-link>
-              <div class="w-1/2">
-                <nuxt-link
-                  to="/"
-                  class="flex items-center gap-3 mb-4"
-                  v-for="(item, index) in 4"
-                  :key="index"
-                >
-                  <img
-                    src="https://daryo.uz/static/2024/10/thumb-6708d23fae76a.jpg"
-                    alt=""
-                    title=""
-                    class="w-[30%]"
-                  />
-                  <h3 class="text-sm">
-                    Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
-                  </h3>
-                </nuxt-link>
-              </div>
-            </div>
-          </div>
+          <CategoryLeftMain />
 
           <!-- Кино и Телевидение -->
-          <div class="main-page-category">
-            <div class="main-page-category-title-wrap">
-              <h2 class="text-lg">Кино и Телевидение</h2>
-              <nuxt-link
-                to="/"
-                class="flex justify-center text-xs text-[#315efb] font-medium"
-              >
-                Barcha habarlar
-              </nuxt-link>
-            </div>
-            <div class="grid grid-cols-2 gap-8 mb-5">
-              <nuxt-link
-                to="/"
-                class="flex items-center gap-3 mb-4"
-                v-for="(item, index) in 6"
-                :key="index"
-              >
-                <img
-                  src="https://daryo.uz/static/2024/10/thumb-6708d23fae76a.jpg"
-                  alt=""
-                  title=""
-                  class="w-[30%]"
-                />
-                <h3 class="text-sm">
-                  Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
-                </h3>
-              </nuxt-link>
-            </div>
-          </div>
+          <CategoryNotMain />
 
           <!-- Музыка -->
-          <div class="main-page-category">
-            <div class="main-page-category-title-wrap">
-              <h2 class="text-lg">Музыка</h2>
-              <nuxt-link
-                to="/"
-                class="flex justify-center text-xs text-[#315efb] font-medium"
-              >
-                Barcha habarlar
-              </nuxt-link>
-            </div>
-            <div class="flex gap-8 mb-5">
-              <div class="w-1/2">
-                <nuxt-link
-                  to="/"
-                  class="flex items-center gap-3 mb-4"
-                  v-for="(item, index) in 4"
-                  :key="index"
-                >
-                  <img
-                    src="https://daryo.uz/static/2024/10/thumb-6708d23fae76a.jpg"
-                    alt=""
-                    title=""
-                    class="w-[30%]"
-                  />
-                  <h3 class="text-sm">
-                    Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
-                  </h3>
-                </nuxt-link>
-              </div>
-              <nuxt-link to="/" class="w-1/2">
-                <img
-                  src="https://daryo.uz/static/2024/10/thumb-6708d23fae76a.jpg"
-                  alt=""
-                  title=""
-                  class="mb-4"
-                />
-                <h3>
-                  Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
-                </h3>
-              </nuxt-link>
-            </div>
-          </div>
+          <CategoryRightMain />
 
           <!-- Технологии -->
-          <div class="main-page-category">
+          <CategoryDoubleTopMain />
+        </div>
+        <div class="w-[32%] ml-[3%]">
+          <!-- last 10 news -->
+          <div>
             <div class="main-page-category-title-wrap">
-              <h2 class="text-lg">Технологии</h2>
-              <nuxt-link
-                to="/"
-                class="flex justify-center text-xs text-[#315efb] font-medium"
+              <div
+                class="bg-[#315efb] font-medium px-2 py-2 rounded-[4px] text-base w-full"
               >
-                Barcha habarlar
-              </nuxt-link>
+                Последные
+              </div>
             </div>
-            <div class="grid grid-cols-2 gap-8 mb-5">
-              <nuxt-link
-                v-for="(item, index) in 2"
-                :key="index"
-                to="/"
-                class="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)] after:rounded-md"
-              >
-                <img
-                  src="https://daryo.uz/static/2024/10/thumb-6708cd0177a88.jpg"
-                  alt=""
-                  class="rounded-md"
-                />
-                <div
-                  class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 font-medium"
-                >
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Beatae, deleniti!
-                </div>
-              </nuxt-link>
-            </div>
-            <div class="grid grid-cols-2 gap-8 mb-5">
-              <nuxt-link
-                to="/"
-                class="flex items-center gap-3 mb-4"
-                v-for="(item, index) in 4"
-                :key="index"
-              >
-                <img
-                  src="https://daryo.uz/static/2024/10/thumb-6708d23fae76a.jpg"
-                  alt=""
-                  title=""
-                  class="w-[30%]"
-                />
-                <h3 class="text-sm">
-                  Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
-                </h3>
-              </nuxt-link>
-            </div>
+            <div></div>
           </div>
         </div>
-        <div class="w-[32%] ml-[3%]">left column</div>
       </div>
     </div>
   </div>
