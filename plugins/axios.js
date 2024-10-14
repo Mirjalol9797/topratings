@@ -4,7 +4,7 @@ import axios from "axios";
 export default defineNuxtPlugin((nuxtApp) => {
   const axiosPlugin = axios.create({});
 
-  axiosPlugin.defaults.baseURL = "https://dev-market.hamroh.me/api/";
+  axiosPlugin.defaults.baseURL = "http://127.0.0.1:8000/api/";
   // axiosPlugin.defaults.baseURL = "https://market.hamroh.me/api/";
 
   axiosPlugin.interceptors.request.use(

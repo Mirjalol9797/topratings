@@ -1,4 +1,5 @@
 <script setup>
+import { useAsyncData } from "nuxt/app";
 import { ref, onMounted } from "vue";
 
 // components
@@ -12,7 +13,28 @@ import CategoryLastTen from "./modules/CategoryLastTen.vue";
 import CategoryFullViewMain from "./modules/CategoryFullViewMain.vue";
 import CategoryAllTopMain from "./modules/CategoryAllTopMain.vue";
 
+const { $axiosPlugin } = useNuxtApp();
+
 const news = ref(null);
+
+const {
+  data: ranksBannerList,
+  pending,
+  error,
+} = await useAsyncData("ranksBanner", async () => {
+  try {
+    const response = await $axiosPlugin.get("news/placeinsite/banner/");
+    console.log("Response:", response);
+    if (response.status == "200") {
+      return response.data;
+    } else {
+      throw new Error("API response error");
+    }
+  } catch (err) {
+    console.error("Error fetching data:", err);
+    throw err;
+  }
+});
 </script>
 
 <template>
@@ -22,7 +44,8 @@ const news = ref(null);
       <div class="flex">
         <div class="w-[68%]">
           <!-- slider banner -->
-          <SliderBanner />
+
+          <SliderBanner :ranksList="ranksBannerList" />
 
           <!-- banner bottom block -->
           <BannerBottomBlock />
