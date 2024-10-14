@@ -30,14 +30,17 @@ const {
 </script>
 
 <template>
-  <div class="news-detail">
+  <div class="rank-detail">
     <div class="site-container">
       <div class="flex">
         <div class="w-[68%]">
-          <div class="font-medium text-3xl mb-6">
+          <div class="font-bold text-3xl mb-6 title">
             {{ rankData?.title }}
           </div>
-          <div v-html="rankData?.description" class="w-full h-full"></div>
+          <div
+            v-html="rankData?.description"
+            class="w-full h-full content"
+          ></div>
         </div>
         <div class="w-[29%] ml-[3%]">
           <CategoryLastTen />
@@ -47,4 +50,15 @@ const {
     </div>
   </div>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.rank-detail {
+  .title {
+    font-family: Comic Sans MS, cursive;
+  }
+  .content {
+    p {
+      margin-bottom: 12px;
+    }
+  }
+}
+</style>
