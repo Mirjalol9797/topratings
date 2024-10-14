@@ -1,5 +1,10 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { onMounted } from "vue";
+
+import { useRoute, useRouter } from "vue-router";
+
+const route = useRoute();
+const router = useRouter();
 const { locales, locale, setLocale } = useI18n();
 
 const localeView = computed(() =>
@@ -10,48 +15,27 @@ function language(value) {
   setLocale(value);
 }
 
-// new language
+const settingsStore = useSettingsStore();
 
-const selectedLanguage = ref("uz"); // По умолчанию узбекский
-
-// Проверка, если находимся на клиентской стороне
-const checkLocalStorage = () => {
-  if (process.client) {
-    // Проверяем, есть ли сохранённый язык в localStorage
-    const savedLanguage = localStorage.getItem("selectedLanguage");
-    if (savedLanguage) {
-      selectedLanguage.value = savedLanguage;
-    }
-  }
-};
-
-const changeLanguage = () => {
-  if (process.client) {
-    localStorage.setItem("selectedLanguage", selectedLanguage.value);
-    location.reload(); // Перезагружаем страницу для применения изменений
-  }
-};
-
-// Вызываем проверку localStorage только на клиенте
-onMounted(checkLocalStorage);
+onMounted(() => {});
 </script>
 
 <template>
-  <header class="bg-[#0f0f0f] text-white mb-10 header 480:mb-6">
+  <header class="bg-[#F3F4F9] mb-10 header 480:mb-6">
     <div class="site-container">
       <div class="flex-center-between py-2">
         <nuxt-link
           to="/"
-          class="text-xl font-bold flex items-center 480:text-lg"
+          class="text-2xl font-bold flex items-center 480:text-lg"
         >
-          Top Rankings
+          <span>Top Rankings</span>
         </nuxt-link>
         <div class="flex">
-          <div class="mr-6 flex relative language-view">
-            <div class="text-white font-semibold flex-center !hidden">
+          <div class="flex relative language-view">
+            <div class="text-[#1C335F] font-semibold flex-center">
               <span>{{ localeView[0].name }}</span>
             </div>
-            <ul class="language-list text-[#0f0f0f] !hidden">
+            <ul class="language-list">
               <li
                 v-for="(item, key) in locales"
                 :key="key"
@@ -61,18 +45,6 @@ onMounted(checkLocalStorage);
                 {{ item.name }}
               </li>
             </ul>
-            <div class="language-selector text-[#0f0f0f]">
-              <label for="language">Language:</label>
-              <select
-                id="language"
-                v-model="selectedLanguage"
-                @change="changeLanguage"
-              >
-                <option value="uz">O‘zbek</option>
-                <option value="ru">Русский</option>
-                <option value="en">English</option>
-              </select>
-            </div>
           </div>
         </div>
       </div>
@@ -104,11 +76,11 @@ onMounted(checkLocalStorage);
   .language-list {
     position: absolute;
     background: #fff;
-    top: 25px;
+    top: 20px;
     left: -8px;
     z-index: 12;
     border-radius: 6px;
-    border: 1px solid #0f0f0f;
+    border: 1px solid #1c335f;
     font-size: 14px;
     line-height: 20px;
     width: 45px;
@@ -117,7 +89,7 @@ onMounted(checkLocalStorage);
     li {
       padding: 6px 10px;
       &:hover {
-        background: #0f0f0f;
+        background: #1c335f;
         color: #fff;
       }
     }

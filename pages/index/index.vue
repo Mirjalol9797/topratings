@@ -9,15 +9,17 @@ import CategoryRightMain from "./modules/CategoryRightMain.vue";
 import CategoryDoubleTopMain from "./modules/CategoryDoubleTopMain.vue";
 import CategoryNotMain from "./modules/CategoryNotMain.vue";
 import CategoryLastTen from "./modules/CategoryLastTen.vue";
+import CategoryFullViewMain from "./modules/CategoryFullViewMain.vue";
 
 const news = ref(null);
 </script>
 
 <template>
   <div class="main-page">
+    <!-- first column -->
     <div class="site-container">
       <div class="flex">
-        <div class="w-[65%]">
+        <div class="w-[68%]">
           <!-- slider banner -->
           <SliderBanner />
 
@@ -29,14 +31,30 @@ const news = ref(null);
 
           <!-- Кино и Телевидение -->
           <CategoryNotMain />
+        </div>
+        <div class="w-[29%] ml-[3%]">
+          <!-- last 10 news -->
+          <CategoryLastTen />
+        </div>
+      </div>
+    </div>
 
+    <!-- second column -->
+    <div class="site-container">
+      <CategoryFullViewMain />
+    </div>
+
+    <!-- third column -->
+    <div class="site-container">
+      <div class="flex">
+        <div class="w-[68%]">
           <!-- Музыка -->
           <CategoryRightMain />
 
           <!-- Технологии -->
           <CategoryDoubleTopMain />
         </div>
-        <div class="w-[32%] ml-[3%]">
+        <div class="w-[29%] ml-[3%]">
           <!-- last 10 news -->
           <CategoryLastTen />
         </div>
