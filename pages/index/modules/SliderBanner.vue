@@ -2,7 +2,7 @@
 import { ref } from "vue";
 
 const props = defineProps({
-  ranksList: {
+  ranksBannerList: {
     type: Array,
     default: [],
   },
@@ -20,7 +20,7 @@ const props = defineProps({
       }"
       :effect="'fade'"
     >
-      <SwiperSlide v-for="(item, index) in ranksList" :key="index">
+      <SwiperSlide v-for="(item, index) in ranksBannerList" :key="index">
         <nuxt-link
           :to="`rank/${item.slug}`"
           class="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)]"

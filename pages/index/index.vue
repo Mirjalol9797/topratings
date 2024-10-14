@@ -17,21 +17,40 @@ const { $axiosPlugin } = useNuxtApp();
 
 const news = ref(null);
 
+// banner api
 const {
   data: ranksBannerList,
-  pending,
-  error,
+  pending: ranksBannerPending,
+  error: ranksBannerError,
 } = await useAsyncData("ranksBanner", async () => {
   try {
     const response = await $axiosPlugin.get("news/placeinsite/banner/");
-    console.log("Response:", response);
     if (response.status == "200") {
       return response.data;
     } else {
-      throw new Error("API response error");
+      throw new Error("API response error news/placeinsite/banner/");
     }
   } catch (err) {
-    console.error("Error fetching data:", err);
+    console.error("news/placeinsite/banner/ Error fetching data:", err);
+    throw err;
+  }
+});
+
+// little banner api
+const {
+  data: ranksLittleBannerList,
+  pending: ranksLittleBannerPending,
+  error: ranksLittleBannerError,
+} = await useAsyncData("ranksLittleBanner", async () => {
+  try {
+    const response = await $axiosPlugin.get("news/placeinsite/little_banner/");
+    if (response.status == "200") {
+      return response.data;
+    } else {
+      throw new Error("API response error news/placeinsite/little_banner/");
+    }
+  } catch (err) {
+    console.error("news/placeinsite/little_banner/ Error fetching data:", err);
     throw err;
   }
 });
@@ -45,10 +64,10 @@ const {
         <div class="w-[68%]">
           <!-- slider banner -->
 
-          <SliderBanner :ranksList="ranksBannerList" />
+          <SliderBanner :ranksBannerList="ranksBannerList" />
 
           <!-- banner bottom block -->
-          <BannerBottomBlock />
+          <BannerBottomBlock :ranksLittleBannerList="ranksLittleBannerList" />
 
           <!-- Игры и Киберспорт -->
           <CategoryLeftMain />
