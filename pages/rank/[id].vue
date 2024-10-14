@@ -1,7 +1,4 @@
 <script setup>
-import { ref } from "vue";
-import { useRoute } from "vue-router";
-
 import CategoryLastTen from "../index/modules/CategoryLastTen.vue";
 import CategoryAllTopMain from "../index/modules/CategoryAllTopMain.vue";
 </script>
