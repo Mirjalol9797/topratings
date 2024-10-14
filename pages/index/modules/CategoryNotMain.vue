@@ -28,16 +28,16 @@ const props = defineProps({
     </div>
     <div class="grid grid-cols-2 gap-8 mb-5">
       <nuxt-link
-        :to="localePath(`/rank/${item.slug}`)"
+        :to="localePath(`/rank/${item?.slug}`)"
         class="flex items-center gap-3 mb-4"
         v-for="(item, index) in categoryList"
         :key="index"
       >
         <div class="w-[30%]">
-          <img :src="item.file" :alt="item.title" :title="item.title" />
+          <img :src="item?.file" :alt="item?.title" :title="item?.title" />
         </div>
         <h3 class="text-sm">
-          {{ item.title }}
+          {{ item?.title }}
         </h3>
       </nuxt-link>
     </div>

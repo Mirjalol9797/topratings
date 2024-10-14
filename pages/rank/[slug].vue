@@ -37,7 +37,7 @@ const {
           <div class="font-medium text-3xl mb-6">
             {{ rankData?.title }}
           </div>
-          <div v-html="rankData.description" class="w-full h-full"></div>
+          <div v-html="rankData?.description" class="w-full h-full"></div>
         </div>
         <div class="w-[29%] ml-[3%]">
           <CategoryLastTen />

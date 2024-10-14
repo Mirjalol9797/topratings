@@ -43,7 +43,9 @@ const {
     <div class="site-container">
       <div class="flex">
         <div class="w-[68%]">
-          <div class="font-medium text-3xl mb-6">Category page</div>
+          <div class="font-medium text-xl mb-6">
+            {{ categoryList[0].category.name }}
+          </div>
 
           <div class="grid grid-cols-3 gap-8">
             <nuxt-link

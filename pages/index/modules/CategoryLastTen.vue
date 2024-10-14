@@ -36,21 +36,21 @@ const {
     </div>
     <div class="h-[350px] overflow-y-auto pr-1 site-scroll">
       <nuxt-link
-        :to="localePath(`/rank/${item.slug}`)"
+        :to="localePath(`/rank/${item?.slug}`)"
         class="flex items-start justify-between gap-4 mb-3"
         v-for="(item, index) in ranksLastList"
         :key="index"
       >
         <div>
           <div class="font-medium text-sm">
-            {{ item.title }}
+            {{ item?.title }}
           </div>
         </div>
         <div class="min-w-[90px]">
           <img
-            :src="item.file"
-            :alt="item.title"
-            :title="item.title"
+            :src="item?.file"
+            :alt="item?.title"
+            :title="item?.title"
             class="w-[90px] h-[70px] object-cover"
           />
         </div>

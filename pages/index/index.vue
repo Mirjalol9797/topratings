@@ -148,7 +148,7 @@ const {
       </div>
     </div>
 
-    <template class="!hidden">
+    <template v-if="false">
       <!-- second column -->
       <div class="site-container">
         <CategoryFullViewMain />

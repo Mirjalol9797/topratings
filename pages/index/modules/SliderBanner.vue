@@ -22,14 +22,14 @@ const props = defineProps({
     >
       <SwiperSlide v-for="(item, index) in bannerList" :key="index">
         <nuxt-link
-          :to="localePath(`/rank/${item.slug}`)"
+          :to="localePath(`/rank/${item?.slug}`)"
           class="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)]"
         >
           <div class="mx-auto h-[460px]">
             <NuxtImg
-              :src="item.file"
-              :alt="item.title"
-              :title="item.title"
+              :src="item?.file"
+              :alt="item?.title"
+              :title="item?.title"
               class="w-full h-full object-cover"
               loading="lazy"
               format="webp"
@@ -38,7 +38,7 @@ const props = defineProps({
           <div
             class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 text-2xl"
           >
-            {{ item.title }}
+            {{ item?.title }}
           </div>
         </nuxt-link>
       </SwiperSlide>

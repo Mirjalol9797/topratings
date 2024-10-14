@@ -9,15 +9,15 @@ const props = defineProps({
 <template>
   <div class="grid grid-cols-5 gap-6">
     <nuxt-link
-      :to="localePath(`/rank/${item.slug}`)"
+      :to="localePath(`/rank/${item?.slug}`)"
       v-for="(item, index) in littleBannerList"
       :key="index"
     >
       <div class="mb-2">
-        <img :src="item.file" :alt="item.title" :title="item.title" />
+        <img :src="item?.file" :alt="item?.title" :title="item?.title" />
       </div>
       <h2 class="text-mini-3">
-        {{ item.title }}
+        {{ item?.title }}
       </h2>
     </nuxt-link>
   </div>
