@@ -54,6 +54,86 @@ const {
     throw err;
   }
 });
+
+// category Игры и Киберспорт
+const {
+  data: ranksIgryKibersportList,
+  pending: ranksIgryKibersportPending,
+  error: ranksIgryKibersportError,
+} = await useAsyncData("ranksIgryKibersport", async () => {
+  try {
+    const response = await $axiosPlugin.post(
+      "news/?cat_slug=igry-i-kibersport-ru",
+      {
+        limit: 5,
+        page: 1,
+      }
+    );
+    if (response.status == "200") {
+      return response.data.data;
+    } else {
+      throw new Error("API response error news/?cat_slug=igry-i-kibersport-ru");
+    }
+  } catch (err) {
+    console.error(
+      "news/?cat_slug=igry-i-kibersport-ru Error fetching data:",
+      err
+    );
+    throw err;
+  }
+});
+
+// category Кино и Телевидение
+const {
+  data: ranksKinoTelevidenieList,
+  pending: ranksKinoTelevideniePending,
+  error: ranksKinoTelevidenieError,
+} = await useAsyncData("ranksKinoTelevidenie", async () => {
+  try {
+    const response = await $axiosPlugin.post(
+      "news/?cat_slug=kino-i-televidenie-ru",
+      {
+        limit: 6,
+        page: 1,
+      }
+    );
+    if (response.status == "200") {
+      return response.data.data;
+    } else {
+      throw new Error(
+        "API response error news/?cat_slug=kino-i-televidenie-ru"
+      );
+    }
+  } catch (err) {
+    console.error(
+      "news/?cat_slug=kino-i-televidenie-ru Error fetching data:",
+      err
+    );
+    throw err;
+  }
+});
+
+// last 10 ranks
+const {
+  data: ranksLastList,
+  pending: ranksLastPending,
+  error: ranksLastError,
+} = await useAsyncData("ranksLast", async () => {
+  try {
+    const response = await $axiosPlugin.post("news/", {
+      limit: 10,
+      page: 1,
+    });
+    if (response.status == "200") {
+      return response.data.data;
+    } else {
+      throw new Error("API response error news/ last 10");
+    }
+  } catch (err) {
+    console.error("news/ last 10 Error fetching data:", err);
+    throw err;
+  }
+});
 </script>
 
 <template>
@@ -64,53 +144,63 @@ const {
         <div class="w-[68%]">
           <!-- slider banner -->
 
-          <SliderBanner :ranksBannerList="ranksBannerList" />
+          <SliderBanner :bannerList="ranksBannerList" />
 
           <!-- banner bottom block -->
-          <BannerBottomBlock :ranksLittleBannerList="ranksLittleBannerList" />
+          <BannerBottomBlock :littleBannerList="ranksLittleBannerList" />
 
           <!-- Игры и Киберспорт -->
-          <CategoryLeftMain />
+          <CategoryLeftMain
+            :categoryList="ranksIgryKibersportList"
+            title="Игры и Киберспорт"
+            slug="igry-i-kibersport-ru"
+          />
 
           <!-- Кино и Телевидение -->
-          <CategoryNotMain />
+          <CategoryNotMain
+            :categoryList="ranksKinoTelevidenieList"
+            title="Кино и Телевидение"
+            slug="kino-i-televidenie-ru"
+          />
         </div>
         <div class="w-[29%] ml-[3%]">
           <!-- last 10 news -->
-          <CategoryLastTen />
+          <CategoryLastTen :lastRanks="ranksLastList" />
         </div>
       </div>
     </div>
 
-    <!-- second column -->
-    <div class="site-container">
-      <CategoryFullViewMain />
-    </div>
+    <template class="!hidden">
+      <!-- second column -->
+      <div class="site-container">
+        <CategoryFullViewMain />
+      </div>
 
-    <!-- third column -->
-    <div class="site-container">
-      <div class="flex">
-        <div class="w-[68%]">
-          <!-- Музыка -->
-          <CategoryRightMain />
+      <!-- third column -->
+      <div class="site-container">
+        <div class="flex">
+          <div class="w-[68%]">
+            <!-- Музыка -->
+            <CategoryRightMain />
 
-          <!-- Технологии -->
-          <CategoryDoubleTopMain />
+            <!-- Технологии -->
+            <CategoryDoubleTopMain />
 
-          <!-- Топ-блюд -->
-          <CategoryAllTopMain />
-        </div>
-        <div class="w-[29%] ml-[3%]">
-          <!-- last 10 news -->
-          <CategoryLastTen />
+            <!-- Топ-блюд -->
+            <CategoryAllTopMain />
+          </div>
+          <div class="w-[29%] ml-[3%]">
+            <!-- last 10 news -->
+            <CategoryLastTen />
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- fourth column -->
-    <div class="site-container">
-      <CategoryFullViewMain />
-    </div>
+      <!-- fourth column -->
+      <div class="site-container">
+        <CategoryFullViewMain />
+      </div>
+    </template>
   </div>
 
   <!-- <UiHLoader /> -->

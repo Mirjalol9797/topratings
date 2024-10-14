@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  lastRanks: {
+    type: Array,
+    default: [],
+  },
+});
+</script>
 
 <template>
   <div class="sticky top-4">
@@ -11,20 +18,22 @@
     </div>
     <div class="h-[350px] overflow-y-auto pr-1 site-scroll">
       <nuxt-link
-        to="/"
-        class="flex items-start gap-3 mb-4"
-        v-for="(item, index) in 10"
+        :to="`rank/${item.slug}`"
+        class="flex items-start justify-between gap-4 mb-3"
+        v-for="(item, index) in lastRanks"
         :key="index"
       >
         <div class="font-medium text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          {{ item.title }}
         </div>
-        <img
-          src="https://daryo.uz/static/2024/10/thumb-670bce4513abb.jpg"
-          alt=""
-          title=""
-          class="w-[90px] h-[70px] object-cover"
-        />
+        <div class="min-w-[90px]">
+          <img
+            :src="item.file"
+            :alt="item.title"
+            :title="item.title"
+            class="w-[90px] h-[70px] object-cover"
+          />
+        </div>
       </nuxt-link>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <script setup>
 const props = defineProps({
-  ranksLittleBannerList: {
+  littleBannerList: {
     type: Array,
     default: [],
   },
@@ -10,7 +10,7 @@ const props = defineProps({
   <div class="grid grid-cols-5 gap-6">
     <nuxt-link
       :to="`rank/${item.slug}`"
-      v-for="(item, index) in ranksLittleBannerList"
+      v-for="(item, index) in littleBannerList"
       :key="index"
     >
       <div class="mb-2">
