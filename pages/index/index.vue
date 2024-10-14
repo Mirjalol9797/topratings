@@ -10,6 +10,7 @@ import CategoryDoubleTopMain from "./modules/CategoryDoubleTopMain.vue";
 import CategoryNotMain from "./modules/CategoryNotMain.vue";
 import CategoryLastTen from "./modules/CategoryLastTen.vue";
 import CategoryFullViewMain from "./modules/CategoryFullViewMain.vue";
+import CategoryAllTopMain from "./modules/CategoryAllTopMain.vue";
 
 const news = ref(null);
 </script>
@@ -53,12 +54,20 @@ const news = ref(null);
 
           <!-- Технологии -->
           <CategoryDoubleTopMain />
+
+          <!-- Топ-блюд -->
+          <CategoryAllTopMain />
         </div>
         <div class="w-[29%] ml-[3%]">
           <!-- last 10 news -->
           <CategoryLastTen />
         </div>
       </div>
+    </div>
+
+    <!-- fourth column -->
+    <div class="site-container">
+      <CategoryFullViewMain />
     </div>
   </div>
 

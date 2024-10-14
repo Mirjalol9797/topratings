@@ -1,10 +1,6 @@
 <script setup>
 import { onMounted } from "vue";
 
-import { useRoute, useRouter } from "vue-router";
-
-const route = useRoute();
-const router = useRouter();
 const { locales, locale, setLocale } = useI18n();
 
 const localeView = computed(() =>
@@ -14,8 +10,6 @@ const localeView = computed(() =>
 function language(value) {
   setLocale(value);
 }
-
-const settingsStore = useSettingsStore();
 
 onMounted(() => {});
 </script>
