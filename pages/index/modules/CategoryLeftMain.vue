@@ -36,39 +36,39 @@ const otherData = computed(() => {
     <div class="main-page-category-title-wrap">
       <h2 class="text-lg">{{ title }}</h2>
       <nuxt-link
-        :to="`category/${slug}`"
+        :to="localePath(`/category/${slug}`)"
         class="flex justify-center text-xs text-[#315efb] font-medium"
       >
         Barcha habarlar
       </nuxt-link>
     </div>
     <div class="flex gap-8 mb-5">
-      <nuxt-link :to="`rank/${firstData.slug}`" class="w-1/2">
+      <nuxt-link :to="localePath(`/rank/${firstData?.slug}`)" class="w-1/2">
         <img
-          :src="firstData.file"
-          :alt="firstData.title"
-          :title="firstData.title"
+          :src="firstData?.file"
+          :alt="firstData?.title"
+          :title="firstData?.title"
           class="mb-4"
         />
-        <h3>{{ firstData.title }}</h3>
+        <h3>{{ firstData?.title }}</h3>
       </nuxt-link>
       <div class="w-1/2">
         <nuxt-link
-          :to="`rank/${item.slug}`"
+          :to="localePath(`/rank/${item?.slug}`)"
           class="flex items-center gap-3 mb-4"
           v-for="(item, index) in otherData"
           :key="index"
         >
           <div class="w-[90px] h-[80px]">
             <img
-              :src="item.file"
-              :alt="item.title"
-              :title="item.title"
+              :src="item?.file"
+              :alt="item?.title"
+              :title="item?.title"
               class="w-full h-full object-cover"
             />
           </div>
           <h3 class="text-sm">
-            {{ item.title }}
+            {{ item?.title }}
           </h3>
         </nuxt-link>
       </div>

@@ -9,7 +9,7 @@ const props = defineProps({
 <template>
   <div class="grid grid-cols-5 gap-6">
     <nuxt-link
-      :to="`rank/${item.slug}`"
+      :to="localePath(`/rank/${item.slug}`)"
       v-for="(item, index) in littleBannerList"
       :key="index"
     >

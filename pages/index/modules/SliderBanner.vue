@@ -22,7 +22,7 @@ const props = defineProps({
     >
       <SwiperSlide v-for="(item, index) in bannerList" :key="index">
         <nuxt-link
-          :to="`rank/${item.slug}`"
+          :to="localePath(`/rank/${item.slug}`)"
           class="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)]"
         >
           <div class="mx-auto h-[460px]">

@@ -112,28 +112,6 @@ const {
     throw err;
   }
 });
-
-// last 10 ranks
-const {
-  data: ranksLastList,
-  pending: ranksLastPending,
-  error: ranksLastError,
-} = await useAsyncData("ranksLast", async () => {
-  try {
-    const response = await $axiosPlugin.post("news/", {
-      limit: 10,
-      page: 1,
-    });
-    if (response.status == "200") {
-      return response.data.data;
-    } else {
-      throw new Error("API response error news/ last 10");
-    }
-  } catch (err) {
-    console.error("news/ last 10 Error fetching data:", err);
-    throw err;
-  }
-});
 </script>
 
 <template>
@@ -165,7 +143,7 @@ const {
         </div>
         <div class="w-[29%] ml-[3%]">
           <!-- last 10 news -->
-          <CategoryLastTen :lastRanks="ranksLastList" />
+          <CategoryLastTen />
         </div>
       </div>
     </div>
@@ -191,7 +169,7 @@ const {
           </div>
           <div class="w-[29%] ml-[3%]">
             <!-- last 10 news -->
-            <CategoryLastTen />
+            <!-- <CategoryLastTen /> -->
           </div>
         </div>
       </div>

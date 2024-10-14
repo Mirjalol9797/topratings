@@ -1,6 +1,32 @@
 <script setup>
+import { useAsyncData } from "nuxt/app";
+
+import { useRoute } from "vue-router";
 import CategoryLastTen from "../index/modules/CategoryLastTen.vue";
 import CategoryAllTopMain from "../index/modules/CategoryAllTopMain.vue";
+
+const { $axiosPlugin } = useNuxtApp();
+
+const route = useRoute();
+
+console.log("route", route.params.slug);
+const {
+  data: rankData,
+  pending: rankDataPending,
+  error: rankDataError,
+} = await useAsyncData("rankDataList", async () => {
+  try {
+    const response = await $axiosPlugin.get(`news/?slug=${route.params.slug}`);
+    if (response.status == "200") {
+      return response.data.data[0];
+    } else {
+      throw new Error(`API response error news/?slug=${route.params.slug}`);
+    }
+  } catch (err) {
+    console.error("news/?slug=${route.params.slug} Error fetching data:", err);
+    throw err;
+  }
+});
 </script>
 
 <template>
@@ -9,31 +35,15 @@ import CategoryAllTopMain from "../index/modules/CategoryAllTopMain.vue";
       <div class="flex">
         <div class="w-[68%]">
           <div class="font-medium text-3xl mb-6">
-            O‘zbekistonning qator viloyatlarida 11-oktyabr kuni yomg‘ir yog‘ishi
-            kutilmoqda
+            {{ rankData?.title }}
           </div>
-          <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-            incidunt reprehenderit laboriosam corporis nostrum harum officia
-            numquam beatae hic, perferendis itaque accusamus distinctio
-            accusantium? Harum ea dicta aliquam pariatur alias asperiores
-            facilis quos suscipit labore, eius exercitationem excepturi?
-            Perspiciatis, debitis repudiandae mollitia velit sapiente earum
-            veritatis odio consequatur quisquam modi minima ea sunt nemo
-            blanditiis! Aliquam quas praesentium qui temporibus numquam eius
-            corrupti iste, fugiat magnam maxime? Quidem quaerat animi dolores
-            quisquam sapiente voluptates suscipit provident? Nulla
-            exercitationem alias optio amet molestiae, unde laborum placeat
-            pariatur vero et fuga voluptatibus cum, enim, tempore dolores
-            consequuntur officia voluptatem beatae eum quaerat!
-          </div>
-
-          <CategoryAllTopMain />
+          <div v-html="rankData.description" class="w-full h-full"></div>
         </div>
         <div class="w-[29%] ml-[3%]">
           <CategoryLastTen />
         </div>
       </div>
+      <CategoryAllTopMain />
     </div>
   </div>
 </template>

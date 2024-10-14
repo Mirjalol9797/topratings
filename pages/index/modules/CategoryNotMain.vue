@@ -20,7 +20,7 @@ const props = defineProps({
     <div class="main-page-category-title-wrap">
       <h2 class="text-lg">{{ title }}</h2>
       <nuxt-link
-        :to="`category/${slug}`"
+        :to="localePath(`/category/${slug}`)"
         class="flex justify-center text-xs text-[#315efb] font-medium"
       >
         Barcha habarlar
@@ -28,7 +28,7 @@ const props = defineProps({
     </div>
     <div class="grid grid-cols-2 gap-8 mb-5">
       <nuxt-link
-        :to="`rank/${item.slug}`"
+        :to="localePath(`/rank/${item.slug}`)"
         class="flex items-center gap-3 mb-4"
         v-for="(item, index) in categoryList"
         :key="index"
