@@ -3,8 +3,8 @@ import { useAsyncData } from "nuxt/app";
 
 import { useRoute } from "vue-router";
 
-import CategoryLastTen from "../index/modules/CategoryLastTen.vue";
-import CategoryAllTopMain from "../index/modules/CategoryAllTopMain.vue";
+import CategoryLastTen from "../../components/mainPage/CategoryLastTen.vue";
+import CategoryAllTopMain from "../../components/mainPage/CategoryAllTopMain.vue";
 
 const { $axiosPlugin } = useNuxtApp();
 
