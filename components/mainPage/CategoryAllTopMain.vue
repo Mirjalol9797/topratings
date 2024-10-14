@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+const { t } = useI18n();
+</script>
 
 <template>
   <div class="main-page-category">
@@ -8,7 +10,7 @@
         to="/"
         class="flex justify-center text-xs text-[#315efb] font-medium"
       >
-        Barcha habarlar
+        {{ $t("see_all") }}
       </nuxt-link>
     </div>
     <div class="grid grid-cols-3 gap-6">

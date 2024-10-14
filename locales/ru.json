@@ -1,86 +1,48 @@
 {
   "A": "A",
   "all_rights_reserved": "Все права защищены.",
-  "are_you_sure_delete_account": "Вы действительно хотите удалить аккаунт?",
-  "add_product": "Добавить товар",
-  "add_new_image": "Добавить новое изображение",
-  "are_you_sure_remove_product": "Вы уверены, что хотите удалить продукт?",
 
   "B": "B",
 
   "C": "C",
-  "change_email": "Изменить email",
-  "change": "Изменить",
-  "cancel": "Отмена",
 
   "D": "D",
-  "delete_account": "Удалить аккаунт",
-  "delete": "Удалить",
 
   "E": "E",
-  "enter_email_to_enter": "Введите свой email для входа на Hamroh market",
-  "enter_correct_email": "Введите правильный email",
-  "enter_code": "Введите код",
-  "edit_profile": "Редактировать профиль",
 
   "F": "F",
-  "field_required": "Обязательно для заполнения",
-  "full_name": "ФИО",
-  "first_name": "Имя",
-  "field_must_shorter_equal_characters": "Поле должно быть короче или равно 46 символам",
 
   "G": "G",
-  "get_code": "Получить код",
 
   "H": "H",
   "I": "I",
   "K": "K",
 
   "L": "L",
-  "log_in": "Вход",
-  "logout": "Выйти",
-  "last_name": "Фамилия",
+  "latest": "Последные",
 
   "M": "M",
-  "my_products": "Мои продукты",
-  "my_profile": "Мой профиль",
 
   "N": "N",
-  "no": "Нет",
 
   "O": "O",
 
   "P": "P",
-  "published": "Опубликовано",
-  "personal_information": "Личная информация",
-  "phone": "Телефон",
-  "profile": "Профиль",
-  "phone_number": "Номер телефона",
-  "please_add_images": "Пожалуйста, добавьте изображения",
-  "product_name": "Название продукта",
-  "product_price": "Цена продукта",
-  "product_description": "Описание товара",
 
   "Q": "Q",
   "R": "R",
 
   "S": "S",
-  "sum": "сум",
-  "send_code": "Отправить код",
-  "save": "Сохранить",
+  "see_all": "Посмотреть все",
 
   "T": "T",
   "V": "V",
 
   "U": "U",
-  "user": "Пользователь",
 
   "W": "W",
-  "we_sentconfirmation_code_to_email": "Мы отправили код подтверждения на ваш email",
 
   "X": "X",
   "Y": "Y",
-  "yes": "Да",
-
   "Z": "Z"
 }

@@ -1,86 +1,48 @@
 {
   "A": "A",
   "all_rights_reserved": "Barcha huquqlar himoyalangan.",
-  "are_you_sure_delete_account": "Akkauntni o'chirishga ishonchingiz komilmi?",
-  "add_product": "Mahsulot qo'shish",
-  "add_new_image": "Yangi rasm qo'shish",
-  "are_you_sure_remove_product": "Siz xaqiqatdanham mahsulotni o'chirib yubormoqchimisiz?",
 
   "B": "B",
 
   "C": "C",
-  "change_email": "Emailni o'zgartish",
-  "change": "O'zgartirish",
-  "cancel": "Bekor qilish",
 
   "D": "D",
-  "delete_account": "Akkauntni o'chirish",
-  "delete": "Oʻchirish",
 
   "E": "E",
-  "enter_email_to_enter": "Hamroh market ga kirish uchun emailingizni kiriting",
-  "enter_correct_email": "To'g'ri email kiriting",
-  "enter_code": "Kodni kiriting",
-  "edit_profile": "Profilni tahrirlash",
 
   "F": "F",
-  "field_required": "To'ldirish majburiy",
-  "full_name": "To'liq ism",
-  "first_name": "Ismi",
-  "field_must_shorter_equal_characters": "Maydon 46 belgidan qisqa yoki teng bo'lishi kerak",
 
   "G": "G",
-  "get_code": "Kodni olish",
 
   "H": "H",
   "I": "I",
   "K": "K",
 
   "L": "L",
-  "log_in": "Kirish",
-  "logout": "Chiqish",
-  "last_name": "Familiya",
+  "latest": "Oxirgilari",
 
   "M": "M",
-  "my_products": "Mahsulotlarim",
-  "my_profile": "Mening profilim",
 
   "N": "N",
-  "no": "Yo'q",
 
   "O": "O",
 
   "P": "P",
-  "published": "Joylashtirildi",
-  "personal_information": "Shaxsiy ma'lumot",
-  "phone": "Telefon",
-  "profile": "Profile",
-  "phone_number": "Telefon raqam",
-  "please_add_images": "Iltimos, rasmlar qo'shing",
-  "product_name": "Mahsulot nomi",
-  "product_price": "Mahsulot narxi",
-  "product_description": "Mahsulot tavsifi",
 
   "Q": "Q",
   "R": "R",
 
   "S": "S",
-  "sum": "so'm",
-  "send_code": "Kodni yuborish",
-  "save": "Saqlash",
+  "see_all": "Barchasi",
 
   "T": "T",
   "V": "V",
 
   "U": "U",
-  "user": "Foydalanuvchi",
 
   "W": "W",
-  "we_sentconfirmation_code_to_email": "Biz sizning emailingizga tasdiqlash kodini yubordik",
 
   "X": "X",
   "Y": "Y",
-  "yes": "Ha",
-
   "Z": "Z"
 }

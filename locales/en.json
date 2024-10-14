@@ -1,85 +1,48 @@
 {
   "A": "A",
   "all_rights_reserved": "All rights reserved.",
-  "are_you_sure_delete_account": "Are you sure you want to delete your account?",
-  "add_product": "Add product",
-  "add_new_image": "Add new image",
-  "are_you_sure_remove_product": "Are you sure you want to remove the product?",
 
   "B": "B",
 
   "C": "C",
-  "change_email": "Change email",
-  "change": "Change",
-  "cancel": "Cancel",
 
   "D": "D",
-  "delete_account": "Delete account",
-  "delete": "Delete",
 
   "E": "E",
-  "enter_email_to_enter": "Enter your email to enter the Hamroh market",
-  "enter_correct_email": "Enter correct email",
-  "enter_code": "Enter code",
-  "edit_profile": "Edit profile",
 
   "F": "F",
-  "field_required": "Field required",
-  "full_name": "Full name",
-  "first_name": "First name",
-  "field_must_shorter_equal_characters": "Field must be shorter than or equal to 46 characters",
 
   "G": "G",
-  "get_code": "Get code",
 
   "H": "H",
   "I": "I",
   "K": "K",
 
   "L": "L",
-  "log_in": "Log In",
-  "logout": "Logout",
-  "last_name": "Last name",
+  "latest": "Latest",
 
   "M": "M",
-  "my_products": "My products",
-  "my_profile": "My profile",
 
   "N": "N",
-  "no": "No",
 
   "O": "O",
 
   "P": "P",
-  "published": "Published",
-  "personal_information": "Personal Information",
-  "phone": "Phone",
-  "profile": "Profile",
-  "phone_number": "Phone number",
-  "please_add_images": "Please add images",
-  "product_name": "Product name",
-  "product_price": "Product price",
-  "product_description": "Product description",
 
   "Q": "Q",
   "R": "R",
 
   "S": "S",
-  "sum": "sum",
-  "send_code": "Send Code",
-  "save": "Save",
+  "see_all": "See all",
 
   "T": "T",
   "V": "V",
 
   "U": "U",
-  "user": "User",
 
   "W": "W",
-  "we_sentconfirmation_code_to_email": "We have sent a confirmation code to your email address",
 
   "X": "X",
   "Y": "Y",
-  "yes": "Yes",
   "Z": "Z"
 }

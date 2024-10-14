@@ -31,7 +31,7 @@ const {
       <div
         class="bg-[#315efb] font-medium px-2 py-2 rounded-[4px] text-base w-full"
       >
-        Последные
+        {{ $t("latest") }}
       </div>
     </div>
     <div class="h-[350px] overflow-y-auto pr-1 site-scroll">

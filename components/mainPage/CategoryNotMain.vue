@@ -23,7 +23,7 @@ const props = defineProps({
         :to="localePath(`/category/${slug}`)"
         class="flex justify-center text-xs text-[#315efb] font-medium"
       >
-        Barcha habarlar
+        {{ $t("see_all") }}
       </nuxt-link>
     </div>
     <div class="grid grid-cols-2 gap-8 mb-5">

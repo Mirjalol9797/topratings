@@ -39,7 +39,7 @@ const otherData = computed(() => {
         :to="localePath(`/category/${slug}`)"
         class="flex justify-center text-xs text-[#315efb] font-medium"
       >
-        Barcha habarlar
+        {{ $t("see_all") }}
       </nuxt-link>
     </div>
     <div class="flex gap-8 mb-5">
