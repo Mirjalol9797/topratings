@@ -36,7 +36,7 @@ const props = defineProps({
             />
           </div>
           <div
-            class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 text-2xl"
+            class="absolute bottom-5 text-white z-10 max-w-[80%] left-5 text-2xl font-medium"
           >
             {{ item?.title }}
           </div>

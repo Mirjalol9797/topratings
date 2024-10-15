@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +12,10 @@ body {
 body {
   background-color: #fff;
   // font-family: "Roboto", sans-serif;
-  font-family: Comic Sans MS, cursive;
+  // font-family: Comic Sans MS, cursive;
+  font-family: "Manrope", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
   color: #101116;
   font-weight: 400;
   font-size: 14px;

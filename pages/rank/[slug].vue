@@ -52,10 +52,6 @@ const {
 </template>
 <style lang="scss">
 .rank-detail {
-  .title {
-    font-family: Comic Sans MS, cursive;
-  }
-
   .content {
     h1,
     h2,

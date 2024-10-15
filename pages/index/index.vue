@@ -22,96 +22,119 @@ const {
   data: ranksBannerList,
   pending: ranksBannerPending,
   error: ranksBannerError,
-} = await useAsyncData("ranksBanner", async () => {
-  try {
-    const response = await $axiosPlugin.get("news/placeinsite/banner/");
-    if (response.status == "200") {
-      return response.data;
-    } else {
-      throw new Error("API response error news/placeinsite/banner/");
+} = await useAsyncData(
+  "ranksBanner",
+  async () => {
+    try {
+      const response = await $axiosPlugin.get("news/placeinsite/banner/");
+      if (response.status == "200") {
+        return response.data;
+      } else {
+        throw new Error("API response error news/placeinsite/banner/");
+      }
+    } catch (err) {
+      console.error("news/placeinsite/banner/ Error fetching data:", err);
+      throw err;
     }
-  } catch (err) {
-    console.error("news/placeinsite/banner/ Error fetching data:", err);
-    throw err;
-  }
-});
+  },
+  { server: true }
+);
 
 // little banner api
 const {
   data: ranksLittleBannerList,
   pending: ranksLittleBannerPending,
   error: ranksLittleBannerError,
-} = await useAsyncData("ranksLittleBanner", async () => {
-  try {
-    const response = await $axiosPlugin.get("news/placeinsite/little_banner/");
-    if (response.status == "200") {
-      return response.data;
-    } else {
-      throw new Error("API response error news/placeinsite/little_banner/");
+} = await useAsyncData(
+  "ranksLittleBanner",
+  async () => {
+    try {
+      const response = await $axiosPlugin.get(
+        "news/placeinsite/little_banner/"
+      );
+      if (response.status == "200") {
+        return response.data;
+      } else {
+        throw new Error("API response error news/placeinsite/little_banner/");
+      }
+    } catch (err) {
+      console.error(
+        "news/placeinsite/little_banner/ Error fetching data:",
+        err
+      );
+      throw err;
     }
-  } catch (err) {
-    console.error("news/placeinsite/little_banner/ Error fetching data:", err);
-    throw err;
-  }
-});
+  },
+  { server: true }
+);
 
 // category Игры и Киберспорт
 const {
   data: ranksIgryKibersportList,
   pending: ranksIgryKibersportPending,
   error: ranksIgryKibersportError,
-} = await useAsyncData("ranksIgryKibersport", async () => {
-  try {
-    const response = await $axiosPlugin.post(
-      "news/?cat_slug=igry-i-kibersport-ru",
-      {
-        limit: 5,
-        page: 1,
+} = await useAsyncData(
+  "ranksIgryKibersport",
+  async () => {
+    try {
+      const response = await $axiosPlugin.post(
+        "news/?cat_slug=igry-i-kibersport-ru",
+        {
+          limit: 5,
+          page: 1,
+        }
+      );
+      if (response.status == "200") {
+        return response.data.data;
+      } else {
+        throw new Error(
+          "API response error news/?cat_slug=igry-i-kibersport-ru"
+        );
       }
-    );
-    if (response.status == "200") {
-      return response.data.data;
-    } else {
-      throw new Error("API response error news/?cat_slug=igry-i-kibersport-ru");
+    } catch (err) {
+      console.error(
+        "news/?cat_slug=igry-i-kibersport-ru Error fetching data:",
+        err
+      );
+      throw err;
     }
-  } catch (err) {
-    console.error(
-      "news/?cat_slug=igry-i-kibersport-ru Error fetching data:",
-      err
-    );
-    throw err;
-  }
-});
+  },
+  { server: true }
+);
 
 // category Кино и Телевидение
 const {
   data: ranksKinoTelevidenieList,
   pending: ranksKinoTelevideniePending,
   error: ranksKinoTelevidenieError,
-} = await useAsyncData("ranksKinoTelevidenie", async () => {
-  try {
-    const response = await $axiosPlugin.post(
-      "news/?cat_slug=kino-i-televidenie-ru",
-      {
-        limit: 6,
-        page: 1,
-      }
-    );
-    if (response.status == "200") {
-      return response.data.data;
-    } else {
-      throw new Error(
-        "API response error news/?cat_slug=kino-i-televidenie-ru"
+} = await useAsyncData(
+  "ranksKinoTelevidenie",
+  async () => {
+    try {
+      const response = await $axiosPlugin.post(
+        "news/?cat_slug=kino-i-televidenie-ru",
+        {
+          limit: 6,
+          page: 1,
+        }
       );
+      if (response.status == "200") {
+        return response.data.data;
+      } else {
+        throw new Error(
+          "API response error news/?cat_slug=kino-i-televidenie-ru"
+        );
+      }
+    } catch (err) {
+      console.error(
+        "news/?cat_slug=kino-i-televidenie-ru Error fetching data:",
+        err
+      );
+      throw err;
     }
-  } catch (err) {
-    console.error(
-      "news/?cat_slug=kino-i-televidenie-ru Error fetching data:",
-      err
-    );
-    throw err;
-  }
-});
+  },
+  { server: true }
+);
 </script>
 
 <template>
