@@ -63,6 +63,11 @@ const {
     a {
       color: #315efb;
     }
+    ul {
+      padding: 0 0 0 16px;
+      margin-bottom: 12px;
+      list-style: circle;
+    }
   }
 }
 </style>
