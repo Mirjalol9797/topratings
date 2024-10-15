@@ -50,14 +50,22 @@ const {
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
+<style lang="scss">
 .rank-detail {
   .title {
     font-family: Comic Sans MS, cursive;
   }
+
   .content {
+    h1,
+    h2,
+    h3,
+    img,
     p {
       margin-bottom: 12px;
+    }
+    a {
+      color: #315efb;
     }
   }
 }
