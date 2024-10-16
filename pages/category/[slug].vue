@@ -20,9 +20,9 @@ const { data: newsCategory } = useAsyncData("category", () =>
     <div class="site-container">
       <div class="flex">
         <div class="w-[68%]">
-          <div class="font-medium text-xl mb-6">
+          <h1 class="font-medium text-xl mb-6">
             {{ newsCategory.data[0].category.name }}
-          </div>
+          </h1>
 
           <div class="grid grid-cols-3 gap-8">
             <nuxt-link
