@@ -13,10 +13,13 @@ function language(value) {
   setLocale(value);
   console.log(value);
   loader.value = true;
+
   setTimeout(() => {
     location.reload();
-    loader.value = false;
   }, 500);
+  setTimeout(() => {
+    loader.value = false;
+  }, 1000);
 }
 
 onMounted(() => {});
