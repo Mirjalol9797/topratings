@@ -6,36 +6,13 @@ import { useRoute } from "vue-router";
 import CategoryLastTen from "../../components/mainPage/CategoryLastTen.vue";
 import CategoryAllTopMain from "../../components/mainPage/CategoryAllTopMain.vue";
 
-const { $axiosPlugin } = useNuxtApp();
-
 const route = useRoute();
 
-const {
-  data: categoryList,
-  pending: categoryListPending,
-  error: categoryListError,
-} = await useAsyncData("category", async () => {
-  try {
-    const response = await $axiosPlugin.post(
-      `news/?cat_slug=${route.params.slug}`,
-      {
-        limit: 20,
-        page: 1,
-      }
-    );
-    if (response.status == "200") {
-      return response.data.data;
-    } else {
-      throw new Error(`API response error news/?cat_slug=${route.params.slug}`);
-    }
-  } catch (err) {
-    console.error(
-      `news/?cat_slug=${route.params.slug} Error fetching data:`,
-      err
-    );
-    throw err;
-  }
-});
+const getNewsCategoryApi = useNewsCategory();
+
+const { data: newsCategory } = useAsyncData("category", () =>
+  getNewsCategoryApi.getNewsCategoryPage(route.params.slug)
+);
 </script>
 
 <template>
@@ -44,13 +21,13 @@ const {
       <div class="flex">
         <div class="w-[68%]">
           <div class="font-medium text-xl mb-6">
-            {{ categoryList[0].category.name }}
+            {{ newsCategory.data[0].category.name }}
           </div>
 
           <div class="grid grid-cols-3 gap-8">
             <nuxt-link
               :to="localePath(`/rank/${item.slug}`)"
-              v-for="(item, index) in categoryList"
+              v-for="(item, index) in newsCategory.data"
               :key="index"
             >
               <div class="h-[220px] mb-4">

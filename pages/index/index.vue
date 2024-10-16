@@ -3,137 +3,37 @@ import { useAsyncData } from "nuxt/app";
 import { ref, onMounted } from "vue";
 
 // components
-import SliderBanner from "../../components/mainPage/SliderBanner.vue";
-import BannerBottomBlock from "../../components/mainPage/BannerBottomBlock.vue";
-import CategoryLeftMain from "../../components/mainPage/CategoryLeftMain.vue";
-import CategoryRightMain from "../../components/mainPage/CategoryRightMain.vue";
-import CategoryDoubleTopMain from "../../components/mainPage/CategoryDoubleTopMain.vue";
-import CategoryNotMain from "../../components/mainPage/CategoryNotMain.vue";
-import CategoryLastTen from "../../components/mainPage/CategoryLastTen.vue";
-import CategoryFullViewMain from "../../components/mainPage/CategoryFullViewMain.vue";
-import CategoryAllTopMain from "../../components/mainPage/CategoryAllTopMain.vue";
+import SliderBanner from "@/components/mainPage/SliderBanner.vue";
+import BannerBottomBlock from "@/components/mainPage/BannerBottomBlock.vue";
+import CategoryLeftMain from "@/components/mainPage/CategoryLeftMain.vue";
+import CategoryRightMain from "@/components/mainPage/CategoryRightMain.vue";
+import CategoryDoubleTopMain from "@/components/mainPage/CategoryDoubleTopMain.vue";
+import CategoryNotMain from "@/components/mainPage/CategoryNotMain.vue";
+import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
+import CategoryFullViewMain from "@/components/mainPage/CategoryFullViewMain.vue";
+import CategoryAllTopMain from "@/components/mainPage/CategoryAllTopMain.vue";
 
-const { $axiosPlugin } = useNuxtApp();
-
-const news = ref(null);
+const getNewsBannerApi = useNewsPlaceInSite();
+const getNewsCategoryApi = useNewsCategory();
 
 // banner api
-const {
-  data: ranksBannerList,
-  pending: ranksBannerPending,
-  error: ranksBannerError,
-} = await useAsyncData(
-  "ranksBanner",
-  async () => {
-    try {
-      const response = await $axiosPlugin.get("news/placeinsite/banner/");
-      if (response.status == "200") {
-        return response.data;
-      } else {
-        throw new Error("API response error news/placeinsite/banner/");
-      }
-    } catch (err) {
-      console.error("news/placeinsite/banner/ Error fetching data:", err);
-      throw err;
-    }
-  },
-  { server: true }
+const { data: newsBanner } = useAsyncData("banner", () =>
+  getNewsBannerApi.getNewsBanner()
 );
 
 // little banner api
-const {
-  data: ranksLittleBannerList,
-  pending: ranksLittleBannerPending,
-  error: ranksLittleBannerError,
-} = await useAsyncData(
-  "ranksLittleBanner",
-  async () => {
-    try {
-      const response = await $axiosPlugin.get(
-        "news/placeinsite/little_banner/"
-      );
-      if (response.status == "200") {
-        return response.data;
-      } else {
-        throw new Error("API response error news/placeinsite/little_banner/");
-      }
-    } catch (err) {
-      console.error(
-        "news/placeinsite/little_banner/ Error fetching data:",
-        err
-      );
-      throw err;
-    }
-  },
-  { server: true }
+const { data: newsLittleBanner } = useAsyncData("littleBanner", () =>
+  getNewsBannerApi.getNewsLittleBanner()
 );
 
 // category Игры и Киберспорт
-const {
-  data: ranksIgryKibersportList,
-  pending: ranksIgryKibersportPending,
-  error: ranksIgryKibersportError,
-} = await useAsyncData(
-  "ranksIgryKibersport",
-  async () => {
-    try {
-      const response = await $axiosPlugin.post(
-        "news/?cat_slug=igry-i-kibersport-ru",
-        {
-          limit: 5,
-          page: 1,
-        }
-      );
-      if (response.status == "200") {
-        return response.data.data;
-      } else {
-        throw new Error(
-          "API response error news/?cat_slug=igry-i-kibersport-ru"
-        );
-      }
-    } catch (err) {
-      console.error(
-        "news/?cat_slug=igry-i-kibersport-ru Error fetching data:",
-        err
-      );
-      throw err;
-    }
-  },
-  { server: true }
+const { data: newsCategoryIgriKibersport } = useAsyncData("category", () =>
+  getNewsCategoryApi.getNewsCategory("igry-i-kibersport")
 );
 
 // category Кино и Телевидение
-const {
-  data: ranksKinoTelevidenieList,
-  pending: ranksKinoTelevideniePending,
-  error: ranksKinoTelevidenieError,
-} = await useAsyncData(
-  "ranksKinoTelevidenie",
-  async () => {
-    try {
-      const response = await $axiosPlugin.post(
-        "news/?cat_slug=kino-i-televidenie-ru",
-        {
-          limit: 6,
-          page: 1,
-        }
-      );
-      if (response.status == "200") {
-        return response.data.data;
-      } else {
-        throw new Error(
-          "API response error news/?cat_slug=kino-i-televidenie-ru"
-        );
-      }
-    } catch (err) {
-      console.error(
-        "news/?cat_slug=kino-i-televidenie-ru Error fetching data:",
-        err
-      );
-      throw err;
-    }
-  },
-  { server: true }
+const { data: newsCategoryKinoTelevidenie } = useAsyncData("category", () =>
+  getNewsCategoryApi.getNewsCategory("kino-i-televidenie")
 );
 </script>
 
@@ -145,23 +45,23 @@ const {
         <div class="w-[68%]">
           <!-- slider banner -->
 
-          <SliderBanner :bannerList="ranksBannerList" />
+          <SliderBanner :bannerList="newsBanner" />
 
           <!-- banner bottom block -->
-          <BannerBottomBlock :littleBannerList="ranksLittleBannerList" />
+          <BannerBottomBlock :littleBannerList="newsLittleBanner" />
 
           <!-- Игры и Киберспорт -->
           <CategoryLeftMain
-            :categoryList="ranksIgryKibersportList"
-            title="Игры и Киберспорт"
-            slug="igry-i-kibersport-ru"
+            :categoryList="newsCategoryIgriKibersport?.data"
+            :title="$t('category.igry_i_kibersport')"
+            slug="igry-i-kibersport"
           />
 
           <!-- Кино и Телевидение -->
           <CategoryNotMain
-            :categoryList="ranksKinoTelevidenieList"
-            title="Кино и Телевидение"
-            slug="kino-i-televidenie-ru"
+            :categoryList="newsCategoryKinoTelevidenie?.data"
+            :title="$t('category.kino_i_televidenie')"
+            slug="kino-i-televidenie"
           />
         </div>
         <div class="w-[29%] ml-[3%]">

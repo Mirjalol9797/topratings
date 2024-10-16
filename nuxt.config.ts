@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxtjs/i18n",
     "@vee-validate/nuxt",
-    // "nuxt-vue3-google-signin",
     [
       "@nuxtjs/google-fonts",
       {
@@ -22,14 +21,6 @@ export default defineNuxtConfig({
       },
     ],
   ],
-
-  // googleSignIn: {
-  //   clientId: process.env.GOOGLE_CLIENT_ID,
-  // },
-
-  // runtimeConfig: {
-  //   googleClientId: process.env.GOOGLE_CLIENT_ID,
-  // },
 
   css: ["~/assets/scss/main.scss"],
 

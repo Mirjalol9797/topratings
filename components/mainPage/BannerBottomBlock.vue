@@ -13,8 +13,13 @@ const props = defineProps({
       v-for="(item, index) in littleBannerList"
       :key="index"
     >
-      <div class="mb-2">
-        <img :src="item?.file" :alt="item?.title" :title="item?.title" />
+      <div class="mb-2 h-[96px]">
+        <img
+          :src="item?.file"
+          :alt="item?.title"
+          :title="item?.title"
+          class="w-full h-full object-cover"
+        />
       </div>
       <h2 class="text-mini-3">
         {{ item?.title }}

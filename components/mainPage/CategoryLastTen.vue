@@ -1,28 +1,11 @@
 <script setup>
 import { useAsyncData } from "nuxt/app";
 
-const { $axiosPlugin } = useNuxtApp();
+const getNewsLatestApi = useNewsLatest();
 
-const {
-  data: ranksLastList,
-  pending: ranksLastPending,
-  error: ranksLastError,
-} = await useAsyncData("ranksLast", async () => {
-  try {
-    const response = await $axiosPlugin.post("news/", {
-      limit: 10,
-      page: 1,
-    });
-    if (response.status == "200") {
-      return response.data.data;
-    } else {
-      throw new Error("API response error news/ last 10");
-    }
-  } catch (err) {
-    console.error("news/ last 10 Error fetching data:", err);
-    throw err;
-  }
-});
+const { data: newsLatest } = useAsyncData("latest", () =>
+  getNewsLatestApi.getNewsLatest()
+);
 </script>
 
 <template>
@@ -38,7 +21,7 @@ const {
       <nuxt-link
         :to="localePath(`/rank/${item?.slug}`)"
         class="flex items-start justify-between gap-4 mb-3"
-        v-for="(item, index) in ranksLastList"
+        v-for="(item, index) in newsLatest.data"
         :key="index"
       >
         <div>

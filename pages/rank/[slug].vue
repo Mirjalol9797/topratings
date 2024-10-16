@@ -2,31 +2,17 @@
 import { useAsyncData } from "nuxt/app";
 
 import { useRoute } from "vue-router";
-import CategoryLastTen from "../../components/mainPage/CategoryLastTen.vue";
-import CategoryAllTopMain from "../../components/mainPage/CategoryAllTopMain.vue";
 
-const { $axiosPlugin } = useNuxtApp();
+import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
+import CategoryAllTopMain from "@/components/mainPage/CategoryAllTopMain.vue";
 
 const route = useRoute();
 
-console.log("route", route.params.slug);
-const {
-  data: rankData,
-  pending: rankDataPending,
-  error: rankDataError,
-} = await useAsyncData("rankDataList", async () => {
-  try {
-    const response = await $axiosPlugin.get(`news/?slug=${route.params.slug}`);
-    if (response.status == "200") {
-      return response.data.data[0];
-    } else {
-      throw new Error(`API response error news/?slug=${route.params.slug}`);
-    }
-  } catch (err) {
-    console.error("news/?slug=${route.params.slug} Error fetching data:", err);
-    throw err;
-  }
-});
+const getNewsSlugApi = useNewsSlug();
+
+const { data: newsSlug } = useAsyncData("slug", () =>
+  getNewsSlugApi.getNewsSlug(route.params.slug)
+);
 </script>
 
 <template>
@@ -35,10 +21,10 @@ const {
       <div class="flex">
         <div class="w-[68%]">
           <div class="font-bold text-3xl mb-6 title">
-            {{ rankData?.title }}
+            {{ newsSlug?.title }}
           </div>
           <div
-            v-html="rankData?.description"
+            v-html="newsSlug?.description"
             class="w-full h-full content"
           ></div>
         </div>
