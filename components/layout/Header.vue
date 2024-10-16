@@ -7,14 +7,23 @@ const localeView = computed(() =>
   locales.value.filter((item) => locale.value == item.code)
 );
 
+const loader = ref(false);
+
 function language(value) {
   setLocale(value);
+  console.log(value);
+  loader.value = true;
+  setTimeout(() => {
+    location.reload();
+    loader.value = false;
+  }, 500);
 }
 
 onMounted(() => {});
 </script>
 
 <template>
+  <UiHLoader v-if="loader" />
   <header class="bg-[#F3F4F9] mb-10 header 480:mb-6">
     <div class="site-container">
       <div class="flex-center-between py-2">

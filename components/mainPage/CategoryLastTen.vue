@@ -21,7 +21,7 @@ const { data: newsLatest } = useAsyncData("latest", () =>
       <nuxt-link
         :to="localePath(`/rank/${item?.slug}`)"
         class="flex items-start justify-between gap-4 mb-3"
-        v-for="(item, index) in newsLatest.data"
+        v-for="(item, index) in newsLatest?.data"
         :key="index"
       >
         <div>

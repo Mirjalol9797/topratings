@@ -1,7 +1,7 @@
 export default defineNuxtPlugin((nuxtApp) => {
   const api = $fetch.create({
-    baseURL: "https://backend.toprankings.uz/api/",
-    // baseURL: "http://127.0.0.1:8000/api/",
+    // baseURL: "https://backend.toprankings.uz/api/",
+    baseURL: "http://127.0.0.1:8000/api/",
     onRequest({ options }) {
       const headers = (options.headers ||= {});
       const locale = nuxtApp.$i18n.locale.value;
