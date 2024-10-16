@@ -21,7 +21,7 @@ const { data: newsCategory } = useAsyncData("category", () =>
       <div class="flex">
         <div class="w-[68%]">
           <h1 class="font-medium text-xl mb-6">
-            {{ newsCategory.data[0].category.name }}
+            {{ newsCategory?.data[0]?.category?.name }}
           </h1>
 
           <div class="grid grid-cols-3 gap-8">

@@ -6,7 +6,6 @@ export const useNewsSlug = () => {
 
   const getNewsSlug = async (newsSlug) => {
     const res = await $api(`${baseUrl}?slug=${newsSlug}`);
-    console.log("res", res);
 
     return res.data[0];
   };

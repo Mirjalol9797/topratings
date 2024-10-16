@@ -6,17 +6,13 @@ const seoData = {
   title: t("seo.title"),
   description: t("seo.description"),
   keywords: t("seo.keywords"),
-  ogTitle:
-    "Top Rankings – Рейтинги лучших в спорте, кино, технологиях и других областях",
-  ogDescription:
-    'На "Top Rankings" вы найдете топ-10 списки в различных категориях: спорт, кино, технологии, музыка, архитектура и многое другое. Оцените рейтинги, созданные на основе данных и мнений экспертов',
+  ogTitle: t("seo.title"),
+  ogDescription: t("seo.description"),
   ogImage: "./public/favicon.ico",
   ogUrl: "https://toprankings.uz/",
   twitterUrl: "https://toprankings.uz/",
-  twitterTitle:
-    "Top Rankings – Рейтинги лучших в спорте, кино, технологиях и других областях",
-  twitterDescription:
-    "На Top Rankings вы найдете топ-10 списки в различных категориях: спорт, кино, технологии, музыка, архитектура и многое другое. Оцените рейтинги, созданные на основе данных и мнений экспертов",
+  twitterTitle: t("seo.title"),
+  twitterDescription: t("seo.description"),
   twitterImage: "./public/favicon.ico",
 };
 

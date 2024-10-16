@@ -1,11 +1,13 @@
 <script setup>
 import { useAsyncData } from "nuxt/app";
+import { useSeo } from "@/composables/useSeo";
 
 import { useRoute } from "vue-router";
 
 import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
 import CategoryAllTopMain from "@/components/mainPage/CategoryAllTopMain.vue";
 
+const { t } = useI18n();
 const route = useRoute();
 
 const getNewsSlugApi = useNewsSlug();
@@ -13,6 +15,24 @@ const getNewsSlugApi = useNewsSlug();
 const { data: newsSlug } = useAsyncData("slug", () =>
   getNewsSlugApi.getNewsSlug(route.params.slug)
 );
+
+const seoData = {
+  title: newsSlug.value.seo.title,
+  description: newsSlug.value.seo.description,
+  keywords: newsSlug.value.seo.keywords,
+  ogTitle: newsSlug.value.seo.title,
+  ogDescription: newsSlug.value.seo.description,
+  ogImage: "./public/favicon.ico",
+  ogUrl: "https://toprankings.uz/",
+  twitterUrl: "https://toprankings.uz/",
+  twitterTitle: newsSlug.value.seo.title,
+  twitterDescription: newsSlug.value.seo.description,
+  twitterImage: "./public/favicon.ico",
+};
+
+useSeo(seoData);
+
+console.log("newsSlug", newsSlug);
 </script>
 
 <template>
