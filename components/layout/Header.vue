@@ -31,7 +31,7 @@ onMounted(() => {});
     <div class="site-container">
       <div class="flex-center-between py-2">
         <nuxt-link
-          to="/"
+          :to="localePath(`/`)"
           class="text-2xl font-bold flex items-center text-[#000] hover:text-[#000] 480:text-lg"
         >
           <span>Top Rankings</span>
