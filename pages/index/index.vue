@@ -1,6 +1,7 @@
 <script setup>
 import { useAsyncData } from "nuxt/app";
 import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
 
 // components
 import SliderBanner from "@/components/mainPage/SliderBanner.vue";
@@ -13,8 +14,10 @@ import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
 import CategoryFullViewMain from "@/components/mainPage/CategoryFullViewMain.vue";
 import CategoryAllTopMain from "@/components/mainPage/CategoryAllTopMain.vue";
 
+const { t } = useI18n();
 const getNewsBannerApi = useNewsPlaceInSite();
 const getNewsCategoryApi = useNewsCategory();
+const route = useRoute();
 
 // banner api
 const { data: newsBanner } = useAsyncData("banner", () =>
@@ -38,6 +41,7 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("category", () =>
 </script>
 
 <template>
+  <img src="../../public/logo.jpg" alt="" class="hidden" />
   <div class="main-page">
     <!-- first column -->
     <div class="site-container">
@@ -103,8 +107,37 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("category", () =>
       </div>
     </template>
   </div>
-
   <!-- <UiHLoader /> -->
+
+  <!-- seo -->
+  <Head>
+    <Title>{{ t("seo.title") }}</Title>
+    <Meta name="title" :content="t('seo.title')" />
+    <Meta name="description" :content="t('seo.description')" />
+    <Meta name="keywords" :content="t('seo.keywords')" />
+    <Meta name="og:title" property="og:title" :content="t('seo.title')" />
+    <Meta
+      name="og:description"
+      property="og:description"
+      :content="t('seo.description')"
+    />
+    <Meta property="og:image" content="./public/logo.jpg" />
+    <Meta
+      property="og:url"
+      :content="`https://toprankings.uz${route.fullPath}`"
+    />
+    <Meta property="twitter:title" :content="t('seo.title')" />
+    <Meta property="twitter:description" :content="t('seo.description')" />
+    <Meta property="twitter:image" content="./public/logo.jpg" />
+    <Meta
+      property="twitter:url"
+      :content="`https://toprankings.uz${route.fullPath}`"
+    />
+    <Link rel="canonical" :href="`https://toprankings.uz${route.fullPath}`" />
+    <Link rel="alternate" hreflang="uz" href="https://toprankings.uz/uz" />
+    <Link rel="alternate" hreflang="en" href="https://toprankings.uz/en" />
+    <Link rel="alternate" hreflang="x-default" href="https://toprankings.uz/" />
+  </Head>
 </template>
 
 <style lang="scss"></style>

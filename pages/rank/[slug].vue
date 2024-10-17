@@ -1,6 +1,5 @@
 <script setup>
 import { useAsyncData } from "nuxt/app";
-import { useSeo } from "@/composables/useSeo";
 
 import { useRoute } from "vue-router";
 
@@ -16,23 +15,7 @@ const { data: newsSlug } = useAsyncData("slug", () =>
   getNewsSlugApi.getNewsSlug(route.params.slug)
 );
 
-const seoData = {
-  title: newsSlug.value.seo.title,
-  description: newsSlug.value.seo.description,
-  keywords: newsSlug.value.seo.keywords,
-  ogTitle: newsSlug.value.seo.title,
-  ogDescription: newsSlug.value.seo.description,
-  ogImage: "./public/favicon.ico",
-  ogUrl: "https://toprankings.uz/",
-  twitterUrl: "https://toprankings.uz/",
-  twitterTitle: newsSlug.value.seo.title,
-  twitterDescription: newsSlug.value.seo.description,
-  twitterImage: "./public/favicon.ico",
-};
-
-useSeo(seoData);
-
-console.log("newsSlug", newsSlug);
+console.log("route", route);
 </script>
 
 <template>
@@ -55,7 +38,53 @@ console.log("newsSlug", newsSlug);
       <CategoryAllTopMain />
     </div>
   </div>
+
+  <!-- seo -->
+  <Head>
+    <Title>{{ newsSlug?.seo?.title }}</Title>
+    <Meta name="title" :content="newsSlug?.seo?.title" />
+    <Meta name="description" :content="newsSlug?.seo?.description" />
+    <Meta name="keywords" :content="newsSlug?.seo?.keywords" />
+    <Meta name="og:title" property="og:title" :content="newsSlug?.seo?.title" />
+    <Meta
+      name="og:description"
+      property="og:description"
+      :content="newsSlug?.seo?.description"
+    />
+    <Meta property="og:image" :content="newsSlug?.file" />
+    <Meta
+      property="og:url"
+      :content="`https://toprankings.uz${route.fullPath}`"
+    />
+    <Meta property="twitter:title" :content="newsSlug?.seo?.title" />
+    <Meta
+      property="twitter:description"
+      :content="newsSlug?.seo?.description"
+    />
+    <Meta property="twitter:image" :content="newsSlug?.file" />
+    <Meta
+      property="twitter:url"
+      :content="`https://toprankings.uz${route.fullPath}`"
+    />
+    <Link rel="canonical" :href="`https://toprankings.uz${route.fullPath}`" />
+    <Link
+      rel="alternate"
+      hreflang="uz"
+      :href="`https://toprankings.uz/uz/rank/${route.params.slug}`"
+    />
+    <Link
+      rel="alternate"
+      hreflang="en"
+      :href="`https://toprankings.uz/en/rank/${route.params.slug}`"
+    />
+    <Link
+      rel="alternate"
+      hreflang="x-default"
+      :href="`https://toprankings.uz/rank/${route.params.slug}`"
+    />
+  </Head>
 </template>
+
 <style lang="scss">
 .rank-detail {
   .content {

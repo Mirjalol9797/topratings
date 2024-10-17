@@ -48,5 +48,66 @@ const { data: newsCategory } = useAsyncData("category", () =>
       </div>
     </div>
   </div>
+
+  <!-- seo -->
+  <Head>
+    <Title>{{ newsCategory?.data[0].category.seo.title }}</Title>
+    <Meta name="title" :content="newsCategory?.data[0].category.seo.title" />
+    <Meta
+      name="description"
+      :content="newsCategory?.data[0].category.seo.description"
+    />
+    <Meta
+      name="keywords"
+      :content="newsCategory?.data[0].category.seo.keywords"
+    />
+    <Meta
+      name="og:title"
+      property="og:title"
+      :content="newsCategory?.data[0].category.seo.title"
+    />
+    <Meta
+      name="og:description"
+      property="og:description"
+      :content="newsCategory?.data[0].category.seo.description"
+    />
+    <Meta property="og:image" :content="newsCategory?.data[0].category.image" />
+    <Meta
+      property="og:url"
+      :content="`https://toprankings.uz${route.fullPath}`"
+    />
+    <Meta
+      property="twitter:title"
+      :content="newsCategory?.data[0].category.seo.title"
+    />
+    <Meta
+      property="twitter:description"
+      :content="newsCategory?.data[0].category.seo.description"
+    />
+    <Meta
+      property="twitter:image"
+      :content="newsCategory?.data[0].category.image"
+    />
+    <Meta
+      property="twitter:url"
+      :content="`https://toprankings.uz${route.fullPath}`"
+    />
+    <Link rel="canonical" :href="`https://toprankings.uz${route.fullPath}`" />
+    <Link
+      rel="alternate"
+      hreflang="uz"
+      :href="`https://toprankings.uz/uz/category/${route.params.slug}`"
+    />
+    <Link
+      rel="alternate"
+      hreflang="en"
+      :href="`https://toprankings.uz/en/category/${route.params.slug}`"
+    />
+    <Link
+      rel="alternate"
+      hreflang="x-default"
+      :href="`https://toprankings.uz/category/${route.params.slug}`"
+    />
+  </Head>
 </template>
 <style lang="scss" scoped></style>

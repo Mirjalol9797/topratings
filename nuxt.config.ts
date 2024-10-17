@@ -52,7 +52,7 @@ export default defineNuxtConfig({
         image: "uz.png",
       },
     ],
-    defaultLocale: "uz",
+    defaultLocale: "ru",
     // vueI18nLoader: true,
     detectBrowserLanguage: {
       useCookie: true,

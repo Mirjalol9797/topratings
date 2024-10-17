@@ -1,24 +1,18 @@
-<script setup>
-import { useSeo } from "@/composables/useSeo";
-
-const { t } = useI18n();
-const seoData = {
-  title: t("seo.title"),
-  description: t("seo.description"),
-  keywords: t("seo.keywords"),
-  ogTitle: t("seo.title"),
-  ogDescription: t("seo.description"),
-  ogImage: "./public/favicon.ico",
-  ogUrl: "https://toprankings.uz/",
-  twitterUrl: "https://toprankings.uz/",
-  twitterTitle: t("seo.title"),
-  twitterDescription: t("seo.description"),
-  twitterImage: "./public/favicon.ico",
-};
-
-useSeo(seoData);
-</script>
+<script setup></script>
 
 <template>
+  <!-- глобал seo -->
+  <Head>
+    <Meta name="theme-color" content="#315efb" />
+    <Meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <Meta name="og:type" property="og:type" content="website" />
+    <Meta name="og:site_name" property="og:site_name" content="TopRankings" />
+    <Meta property="twitter:card" content="summary_large_image" />
+    <Link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <Link rel="preload" href="https://fonts.gstatic.com" />
+  </Head>
   <NuxtLayout></NuxtLayout>
 </template>
