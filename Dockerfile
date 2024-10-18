@@ -8,7 +8,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Bog'liqliklarni o'rnatish
-RUN npm ci
+RUN npm install
 
 # Loyiha fayllarini nusxalash
 COPY . .
