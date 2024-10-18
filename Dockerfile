@@ -16,6 +16,8 @@ COPY . .
 # Loyihani build qilish
 RUN npm run build
 
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 # Ilovani ishga tushirish uchun port
 EXPOSE 3000
 
