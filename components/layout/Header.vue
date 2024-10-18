@@ -11,15 +11,14 @@ const loader = ref(false);
 
 function language(value) {
   setLocale(value);
-  console.log(value);
-  loader.value = true;
+  // loader.value = true;
 
-  setTimeout(() => {
-    location.reload();
-  }, 500);
-  setTimeout(() => {
-    loader.value = false;
-  }, 1000);
+  // setTimeout(() => {
+  //   location.reload();
+  // }, 500);
+  // setTimeout(() => {
+  //   loader.value = false;
+  // }, 1000);
 }
 
 onMounted(() => {});
