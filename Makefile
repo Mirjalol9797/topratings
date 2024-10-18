@@ -3,6 +3,6 @@ build:
 rm: 
 	docker rm -f topranking_front
 run:
-	docker run -d -it -p 3002:80 --name topranking_front topranking_front
+	docker run -d -it -p 3002:3000 --name topranking_front topranking_front
 rebuild: rm run
 
