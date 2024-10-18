@@ -45,8 +45,8 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("category", () =>
   <div class="main-page">
     <!-- first column -->
     <div class="site-container">
-      <div class="flex">
-        <div class="w-[68%]">
+      <div class="flex 960:flex-col">
+        <div class="w-[68%] 960:w-full 960:mb-14">
           <!-- slider banner -->
 
           <SliderBanner :bannerList="newsBanner" />
@@ -68,7 +68,7 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("category", () =>
             slug="kino-i-televidenie"
           />
         </div>
-        <div class="w-[29%] ml-[3%]">
+        <div class="w-[29%] ml-[3%] 960:w-full 960:ml-0">
           <!-- last 10 news -->
           <CategoryLastTen />
         </div>

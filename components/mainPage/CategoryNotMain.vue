@@ -26,7 +26,7 @@ const props = defineProps({
         {{ $t("see_all") }}
       </nuxt-link>
     </div>
-    <div class="grid grid-cols-2 gap-8 mb-5">
+    <div class="grid grid-cols-2 gap-8 mb-5 640:grid-cols-1 640:gap-0">
       <nuxt-link
         :to="localePath(`/rank/${item?.slug}`)"
         class="flex items-center gap-3 mb-4"

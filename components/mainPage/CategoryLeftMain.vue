@@ -42,8 +42,11 @@ const otherData = computed(() => {
         {{ $t("see_all") }}
       </nuxt-link>
     </div>
-    <div class="flex gap-8 mb-5">
-      <nuxt-link :to="localePath(`/rank/${firstData?.slug}`)" class="w-1/2">
+    <div class="flex gap-8 mb-5 768:flex-col">
+      <nuxt-link
+        :to="localePath(`/rank/${firstData?.slug}`)"
+        class="w-1/2 768:w-full"
+      >
         <img
           :src="firstData?.file"
           :alt="firstData?.title"
@@ -52,14 +55,14 @@ const otherData = computed(() => {
         />
         <h3>{{ firstData?.title }}</h3>
       </nuxt-link>
-      <div class="w-1/2">
+      <div class="w-1/2 768:w-full">
         <nuxt-link
           :to="localePath(`/rank/${item?.slug}`)"
           class="flex items-center gap-3 mb-4"
           v-for="(item, index) in otherData"
           :key="index"
         >
-          <div class="w-[90px] h-[80px]">
+          <div class="w-[90px] h-[80px] 640:w-[30%] 640:h-auto">
             <img
               :src="item?.file"
               :alt="item?.title"

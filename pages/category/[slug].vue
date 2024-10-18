@@ -18,19 +18,19 @@ const { data: newsCategory } = useAsyncData("category", () =>
 <template>
   <div class="news-detail">
     <div class="site-container">
-      <div class="flex">
-        <div class="w-[68%]">
-          <h1 class="font-medium text-xl mb-6">
+      <div class="flex 768:flex-col">
+        <div class="w-[68%] 768:w-full 768:mb-14">
+          <h1 class="font-bold text-xl mb-6">
             {{ newsCategory?.data[0]?.category?.name }}
           </h1>
 
-          <div class="grid grid-cols-3 gap-8">
+          <div class="grid grid-cols-3 gap-8 1024:grid-cols-2">
             <nuxt-link
               :to="localePath(`/rank/${item.slug}`)"
               v-for="(item, index) in newsCategory.data"
               :key="index"
             >
-              <div class="h-[220px] mb-4">
+              <div class="h-[220px] mb-4 480:h-[160px]">
                 <img
                   :src="item.file"
                   :alt="item.title"
@@ -42,7 +42,7 @@ const { data: newsCategory } = useAsyncData("category", () =>
             </nuxt-link>
           </div>
         </div>
-        <div class="w-[29%] ml-[3%]">
+        <div class="w-[29%] ml-[3%] 768:w-full 768:ml-0">
           <CategoryLastTen />
         </div>
       </div>

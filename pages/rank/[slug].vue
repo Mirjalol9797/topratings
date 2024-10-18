@@ -21,8 +21,8 @@ console.log("route", route);
 <template>
   <div class="rank-detail">
     <div class="site-container">
-      <div class="flex">
-        <div class="w-[68%]">
+      <div class="flex 768:flex-col">
+        <div class="w-[68%] 768:w-full 768:mb-14">
           <h1 class="font-bold text-3xl mb-6 title">
             {{ newsSlug?.title }}
           </h1>
@@ -31,7 +31,7 @@ console.log("route", route);
             class="w-full h-full content"
           ></div>
         </div>
-        <div class="w-[29%] ml-[3%]">
+        <div class="w-[29%] ml-[3%] 768:w-full 768:ml-0">
           <CategoryLastTen />
         </div>
       </div>

@@ -25,7 +25,7 @@ const props = defineProps({
           :to="localePath(`/rank/${item?.slug}`)"
           class="relative after:content-[''] after:absolute after:inset-0 after:bg-[rgba(0,0,0,0.3)]"
         >
-          <div class="mx-auto h-[460px]">
+          <div class="mx-auto h-[460px] 480:h-[360px]">
             <NuxtImg
               :src="item?.file"
               :alt="item?.title"

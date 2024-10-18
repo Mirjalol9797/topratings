@@ -27,7 +27,7 @@ onMounted(() => {});
 
 <template>
   <UiHLoader v-if="loader" />
-  <header class="bg-[#F3F4F9] mb-10 header 480:mb-6">
+  <header class="bg-[#F3F4F9] mb-10 header 480:mb-5">
     <div class="site-container">
       <div class="flex-center-between py-2">
         <nuxt-link
