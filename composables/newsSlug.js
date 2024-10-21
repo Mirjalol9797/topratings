@@ -5,7 +5,7 @@ export const useNewsSlug = () => {
   const { $api } = nuxtApp;
 
   const getNewsSlug = async (newsSlug) => {
-    const res = await $api(`${baseUrl}?slug=${newsSlug}`);
+    const res = await $api(`${baseUrl}?slug=${newsSlug}/`);
 
     return res.data[0];
   };
