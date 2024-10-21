@@ -5,11 +5,11 @@ export const useNewsPlaceInSite = () => {
   const { $api } = nuxtApp;
 
   const getNewsBanner = async () => {
-    const res = await $api(`${baseUrl}/banner/`);
+    const res = await $api(`${baseUrl}/banner`);
     return res;
   };
   const getNewsLittleBanner = async () => {
-    const res = await $api(`${baseUrl}/little_banner/`);
+    const res = await $api(`${baseUrl}/little_banner`);
     return res;
   };
 

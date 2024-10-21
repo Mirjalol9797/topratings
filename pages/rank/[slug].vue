@@ -95,6 +95,9 @@ console.log("route", route);
     p {
       margin-bottom: 12px;
     }
+    p {
+      line-height: 24px;
+    }
     a {
       color: #315efb;
     }
