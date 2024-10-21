@@ -3,7 +3,7 @@ import { useAsyncData } from "nuxt/app";
 
 import { useRoute } from "vue-router";
 
-import CategoryLastTen from "../../components/mainPage/CategoryLastTen.vue";
+import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
 import CategoryAllTopMain from "../../components/mainPage/CategoryAllTopMain.vue";
 
 const route = useRoute();
@@ -51,42 +51,45 @@ const { data: newsCategory } = useAsyncData("category", () =>
 
   <!-- seo -->
   <Head>
-    <Title>{{ newsCategory?.data[0].category.seo.title }}</Title>
-    <Meta name="title" :content="newsCategory?.data[0].category.seo.title" />
+    <Title>{{ newsCategory?.data[0]?.category?.seo?.title }}</Title>
+    <Meta name="title" :content="newsCategory?.data[0]?.category?.seo?.title" />
     <Meta
       name="description"
-      :content="newsCategory?.data[0].category.seo.description"
+      :content="newsCategory?.data[0]?.category?.seo?.description"
     />
     <Meta
       name="keywords"
-      :content="newsCategory?.data[0].category.seo.keywords"
+      :content="newsCategory?.data[0]?.category?.seo?.keywords"
     />
     <Meta
       name="og:title"
       property="og:title"
-      :content="newsCategory?.data[0].category.seo.title"
+      :content="newsCategory?.data[0]?.category?.seo?.title"
     />
     <Meta
       name="og:description"
       property="og:description"
-      :content="newsCategory?.data[0].category.seo.description"
+      :content="newsCategory?.data[0]?.category?.seo?.description"
     />
-    <Meta property="og:image" :content="newsCategory?.data[0].category.image" />
+    <Meta
+      property="og:image"
+      :content="newsCategory?.data[0]?.category?.image"
+    />
     <Meta
       property="og:url"
       :content="`https://toprankings.uz${route.fullPath}`"
     />
     <Meta
       property="twitter:title"
-      :content="newsCategory?.data[0].category.seo.title"
+      :content="newsCategory?.data[0]?.category?.seo?.title"
     />
     <Meta
       property="twitter:description"
-      :content="newsCategory?.data[0].category.seo.description"
+      :content="newsCategory?.data[0]?.category?.seo?.description"
     />
     <Meta
       property="twitter:image"
-      :content="newsCategory?.data[0].category.image"
+      :content="newsCategory?.data[0]?.category?.image"
     />
     <Meta
       property="twitter:url"
