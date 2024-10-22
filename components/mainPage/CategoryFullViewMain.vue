@@ -3,7 +3,7 @@
 <template>
   <div class="my-10">
     <div class="main-page-category-title-wrap">
-      <h2 class="text-lg">Спорт</h2>
+      <h2 class="text-lg font-bold">Спорт</h2>
       <nuxt-link
         to="/"
         class="flex justify-center text-xs text-[#315efb] font-medium"

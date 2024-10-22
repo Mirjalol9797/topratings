@@ -18,7 +18,7 @@ const props = defineProps({
 <template>
   <div class="main-page-category">
     <div class="main-page-category-title-wrap">
-      <h2 class="text-lg">{{ title }}</h2>
+      <h2 class="text-lg font-bold">{{ title }}</h2>
       <nuxt-link
         :to="localePath(`/category/${slug}`)"
         class="flex justify-center text-xs text-[#315efb] font-medium"
@@ -36,7 +36,7 @@ const props = defineProps({
         <div class="w-[30%]">
           <img :src="item?.file" :alt="item?.title" :title="item?.title" />
         </div>
-        <h3 class="text-sm">
+        <h3 class="text-sm font-medium">
           {{ item?.title }}
         </h3>
       </nuxt-link>

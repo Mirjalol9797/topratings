@@ -34,7 +34,7 @@ const otherData = computed(() => {
 <template>
   <div class="main-page-category">
     <div class="main-page-category-title-wrap">
-      <h2 class="text-lg">{{ title }}</h2>
+      <h2 class="text-lg font-bold">{{ title }}</h2>
       <nuxt-link
         :to="localePath(`/category/${slug}`)"
         class="flex justify-center text-xs text-[#315efb] font-medium"
@@ -55,7 +55,7 @@ const otherData = computed(() => {
             class="w-full h-full object-cover"
           />
         </div>
-        <h3>{{ firstData?.title }}</h3>
+        <h3 class="font-medium">{{ firstData?.title }}</h3>
       </nuxt-link>
       <div class="w-1/2 768:w-full">
         <nuxt-link
@@ -72,7 +72,7 @@ const otherData = computed(() => {
               class="w-full h-full object-cover"
             />
           </div>
-          <h3 class="text-sm">
+          <h3 class="text-sm font-medium">
             {{ item?.title }}
           </h3>
         </nuxt-link>

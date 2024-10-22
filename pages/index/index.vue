@@ -42,6 +42,9 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
 
 <template>
   <img src="../../public/logo.jpg" alt="" class="hidden" />
+  <h1 class="absolute left-[-9999rem] top-[-9999rem]">
+    {{ $t("seo.title") }}
+  </h1>
   <div class="main-page">
     <!-- first column -->
     <div class="site-container">

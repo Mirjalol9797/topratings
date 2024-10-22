@@ -3,7 +3,7 @@
 <template>
   <div class="main-page-category">
     <div class="main-page-category-title-wrap">
-      <h2 class="text-lg">Технологии</h2>
+      <h2 class="text-lg font-bold">Технологии</h2>
       <nuxt-link
         to="/"
         class="flex justify-center text-xs text-[#315efb] font-medium"
@@ -44,7 +44,7 @@
           title=""
           class="w-[30%]"
         />
-        <h3 class="text-sm">
+        <h3 class="text-sm font-medium">
           Britaniya Ukrainaga harbiylar yuborishi mumkin — The Times
         </h3>
       </nuxt-link>
