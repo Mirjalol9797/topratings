@@ -37,15 +37,15 @@ onMounted(() => {});
         </nuxt-link>
         <div class="flex">
           <div class="flex relative language-view">
-            <div class="text-[#1C335F] font-semibold flex-center">
-              <span>{{ localeView[0].name }}</span>
+            <div class="text-[#1C335F] flex-center">
+              <span class="font-semibold">{{ localeView[0].name }}</span>
             </div>
             <ul class="language-list">
               <li
                 v-for="(item, key) in locales"
                 :key="key"
                 @click="language(item.code)"
-                class="flex-center"
+                class="flex-center font-semibold"
               >
                 {{ item.name }}
               </li>
