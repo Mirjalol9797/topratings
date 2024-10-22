@@ -45,14 +45,16 @@ const otherData = computed(() => {
     <div class="flex gap-8 mb-5 768:flex-col">
       <nuxt-link
         :to="localePath(`/rank/${firstData?.slug}`)"
-        class="w-1/2 768:w-full"
+        class="w-1/2 768:w-full block"
       >
-        <img
-          :src="firstData?.file"
-          :alt="firstData?.title"
-          :title="firstData?.title"
-          class="mb-4"
-        />
+        <div class="h-[280px] mb-4">
+          <img
+            :src="firstData?.file"
+            :alt="firstData?.title"
+            :title="firstData?.title"
+            class="w-full h-full object-cover"
+          />
+        </div>
         <h3>{{ firstData?.title }}</h3>
       </nuxt-link>
       <div class="w-1/2 768:w-full">

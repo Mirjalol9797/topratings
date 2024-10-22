@@ -30,12 +30,12 @@ const { data: newsLittleBanner } = useAsyncData("littleBanner", () =>
 );
 
 // category Игры и Киберспорт
-const { data: newsCategoryIgriKibersport } = useAsyncData("category", () =>
+const { data: newsCategoryIgriKibersport } = useAsyncData("categoryIgry", () =>
   getNewsCategoryApi.getNewsCategory("igry-i-kibersport")
 );
 
 // category Кино и Телевидение
-const { data: newsCategoryKinoTelevidenie } = useAsyncData("category", () =>
+const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
   getNewsCategoryApi.getNewsCategory("kino-i-televidenie")
 );
 </script>

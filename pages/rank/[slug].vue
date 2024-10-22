@@ -98,6 +98,9 @@ console.log("route", route);
     p {
       line-height: 24px;
     }
+    h2 {
+      font-size: 16px;
+    }
     a {
       color: #315efb;
     }
