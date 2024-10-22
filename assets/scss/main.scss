@@ -127,7 +127,7 @@ h4,
 h5,
 h6 {
   font-size: revert;
-  font-weight: revert;
+  font-weight: 600;
 }
 .site-btn {
   border-radius: 12px;
@@ -204,6 +204,7 @@ input[type="number"] {
   min-height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 600;
 }
 
 .main-page-category {
