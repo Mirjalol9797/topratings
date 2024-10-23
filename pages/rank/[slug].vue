@@ -108,6 +108,9 @@ const { data: newsSlug } = useAsyncData("slug", () =>
       margin-bottom: 12px;
       list-style: circle;
     }
+    iframe {
+      width: 100%;
+    }
   }
 }
 </style>
