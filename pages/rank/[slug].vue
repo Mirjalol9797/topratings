@@ -99,13 +99,14 @@ console.log("route", route);
       line-height: 24px;
     }
     h2 {
-      font-size: 16px;
+      font-size: 20px;
+      line-height: 24px;
     }
     a {
       color: #315efb;
     }
     ul {
-      padding: 0 0 0 16px;
+      padding: 0 0 0 40px;
       margin-bottom: 12px;
       list-style: circle;
     }
