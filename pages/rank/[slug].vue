@@ -14,8 +14,6 @@ const getNewsSlugApi = useNewsSlug();
 const { data: newsSlug } = useAsyncData("slug", () =>
   getNewsSlugApi.getNewsSlug(route.params.slug)
 );
-
-console.log("route", route);
 </script>
 
 <template>
