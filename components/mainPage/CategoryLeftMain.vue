@@ -60,7 +60,7 @@ const otherData = computed(() => {
       <div class="w-1/2 768:w-full">
         <nuxt-link
           :to="localePath(`/rank/${item?.slug}`)"
-          class="flex items-center gap-3 mb-4"
+          class="flex items-center gap-3 mb-4 last:mb-0"
           v-for="(item, index) in otherData"
           :key="index"
         >

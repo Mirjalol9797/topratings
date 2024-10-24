@@ -15,7 +15,7 @@
       <div class="w-1/2">
         <nuxt-link
           to="/"
-          class="flex items-center gap-3 mb-4"
+          class="flex items-center gap-3 mb-4 last:mb-0"
           v-for="(item, index) in 4"
           :key="index"
         >
