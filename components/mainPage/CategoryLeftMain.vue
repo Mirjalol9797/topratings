@@ -48,11 +48,13 @@ const otherData = computed(() => {
         class="w-1/2 768:w-full block"
       >
         <div class="h-[280px] mb-4">
-          <img
+          <NuxtImg
             :src="firstData?.file"
             :alt="firstData?.title"
             :title="firstData?.title"
             class="w-full h-full object-cover"
+            loading="lazy"
+            format="webp"
           />
         </div>
         <h3 class="font-medium">{{ firstData?.title }}</h3>
@@ -65,11 +67,13 @@ const otherData = computed(() => {
           :key="index"
         >
           <div class="min-w-[90px] h-[80px] 640:w-[30%] 640:h-auto">
-            <img
+            <NuxtImg
               :src="item?.file"
               :alt="item?.title"
               :title="item?.title"
               class="w-full h-full object-cover"
+              loading="lazy"
+              format="webp"
             />
           </div>
           <h3 class="text-sm font-medium">

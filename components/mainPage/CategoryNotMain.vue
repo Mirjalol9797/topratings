@@ -34,11 +34,13 @@ const props = defineProps({
         :key="index"
       >
         <div class="min-w-[100px] h-[90px]">
-          <img
+          <NuxtImg
             :src="item?.file"
             :alt="item?.title"
             :title="item?.title"
             class="w-full h-full object-cover"
+            loading="lazy"
+            format="webp"
           />
         </div>
         <h3 class="text-sm font-medium">

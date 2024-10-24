@@ -30,11 +30,13 @@ const { data: newsLatest } = useAsyncData("latest", () =>
           </div>
         </div>
         <div class="min-w-[90px]">
-          <img
+          <NuxtImg
             :src="item?.file"
             :alt="item?.title"
             :title="item?.title"
             class="w-[90px] h-[70px] object-cover"
+            loading="lazy"
+            format="webp"
           />
         </div>
       </nuxt-link>
