@@ -66,7 +66,7 @@ const otherData = computed(() => {
           v-for="(item, index) in otherData"
           :key="index"
         >
-          <div class="min-w-[90px] h-[80px] 640:w-[30%] 640:h-auto">
+          <div class="min-w-[90px] h-[80px]">
             <NuxtImg
               :src="item?.file"
               :alt="item?.title"
