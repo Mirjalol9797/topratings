@@ -15,7 +15,7 @@
       :modules="[SwiperAutoplay]"
       :slides-per-view="5"
       :spaceBetween="24"
-      :loop="true"
+      :loop="false"
       :autoplay="{
         delay: 4000,
         disableOnInteraction: true,

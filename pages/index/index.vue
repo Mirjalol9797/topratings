@@ -41,7 +41,17 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
 </script>
 
 <template>
-  <img src="../../public/logo.jpg" alt="" class="hidden" />
+  <iframe
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen=""
+    frameborder="0"
+    height="315"
+    referrerpolicy="strict-origin-when-cross-origin"
+    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
+    src="https://www.youtube.com/embed/g6HH5kKLAlw?si=3omheXdNjTWG330c"
+    title="YouTube video player"
+    width="560"
+  ></iframe>
   <h1 class="absolute left-[-9999rem] top-[-9999rem]">
     {{ $t("seo.title") }}
   </h1>
@@ -78,12 +88,12 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
       </div>
     </div>
 
-    <template v-if="false">
-      <!-- second column -->
-      <div class="site-container">
-        <CategoryFullViewMain />
-      </div>
+    <!-- second column -->
+    <div class="site-container">
+      <CategoryFullViewMain />
+    </div>
 
+    <template v-if="false">
       <!-- third column -->
       <div class="site-container">
         <div class="flex">
@@ -124,14 +134,14 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
       property="og:description"
       :content="t('seo.description')"
     />
-    <Meta property="og:image" content="./public/logo.jpg" />
+    <Meta property="og:image" content="https://toprankings.uz/logo.jpg" />
     <Meta
       property="og:url"
       :content="`https://toprankings.uz${route.fullPath}`"
     />
     <Meta property="twitter:title" :content="t('seo.title')" />
     <Meta property="twitter:description" :content="t('seo.description')" />
-    <Meta property="twitter:image" content="./public/logo.jpg" />
+    <Meta property="twitter:image" content="https://toprankings.uz/logo.jpg" />
     <Meta
       property="twitter:url"
       :content="`https://toprankings.uz${route.fullPath}`"
