@@ -41,17 +41,6 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
 </script>
 
 <template>
-  <iframe
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen=""
-    frameborder="0"
-    height="315"
-    referrerpolicy="strict-origin-when-cross-origin"
-    sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"
-    src="https://www.youtube.com/embed/g6HH5kKLAlw?si=3omheXdNjTWG330c"
-    title="YouTube video player"
-    width="560"
-  ></iframe>
   <h1 class="absolute left-[-9999rem] top-[-9999rem]">
     {{ $t("seo.title") }}
   </h1>
