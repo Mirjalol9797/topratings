@@ -38,6 +38,11 @@ const { data: newsCategoryIgriKibersport } = useAsyncData("categoryIgry", () =>
 const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
   getNewsCategoryApi.getNewsCategory("kino-i-televidenie")
 );
+
+// sport
+const { data: newsCategorySport } = useAsyncData("categorySport", () =>
+  getNewsCategoryApi.getNewsCategory("sport")
+);
 </script>
 
 <template>
@@ -79,7 +84,11 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
 
     <!-- second column -->
     <div class="site-container">
-      <CategoryFullViewMain />
+      <CategoryFullViewMain
+        :categoryList="newsCategorySport?.data"
+        :title="$t('category.sport')"
+        slug="sport"
+      />
     </div>
 
     <template v-if="false">
