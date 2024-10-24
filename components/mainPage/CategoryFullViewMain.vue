@@ -35,6 +35,20 @@ const props = defineProps({
         delay: 4000,
         disableOnInteraction: true,
       }"
+      :breakpoints="{
+        360: {
+          slidesPerView: 2,
+        },
+        640: {
+          slidesPerView: 3,
+        },
+        960: {
+          slidesPerView: 4,
+        },
+        1200: {
+          slidesPerView: 5,
+        },
+      }"
     >
       <SwiperSlide v-for="(item, index) in categoryList" :key="index">
         <nuxt-link :to="localePath(`/rank/${item?.slug}`)" class="">
