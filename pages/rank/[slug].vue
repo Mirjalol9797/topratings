@@ -11,9 +11,66 @@ const route = useRoute();
 
 const getNewsSlugApi = useNewsSlug();
 
-const { data: newsSlug } = useAsyncData("slug", () =>
-  getNewsSlugApi.getNewsSlug(route.params.slug)
+const { data: newsSlug } = useAsyncData(
+  "slug",
+  async () => await getNewsSlugApi.getNewsSlug(route.params.slug)
 );
+
+// for seo. script application json
+const inLanguage = route.name.replace("rank-slug___", "");
+const keywords = computed(() => {
+  if (newsSlug.value && newsSlug.value.seo && newsSlug.value.seo.keywords) {
+    return newsSlug.value.seo.keywords
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item);
+  }
+  return [];
+});
+
+const headData = computed(() => {
+  if (newsSlug.value) {
+    return {
+      script: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: `${newsSlug.value?.seo.title}`,
+            description: `${newsSlug.value?.seo.description}`,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://toprankings.uz${route.fullPath}`,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Mirjalol Mirxomitov",
+              logo: {
+                "@type": "ImageObject",
+                url: `https://toprankings.uz/logo.jpg`,
+              },
+            },
+            author: {
+              "@type": "Person",
+              name: "Mirjalol Mirxomitov",
+            },
+            datePublished: `${newsSlug.value?.publication_date}`,
+            dateModified: `${newsSlug.value?.publication_date}`,
+            image: `${newsSlug.value?.file}`,
+            articleSection: `${newsSlug.value?.category?.name}`,
+            keywords: `${keywords.value}`,
+            inLanguage: `${inLanguage}`,
+          }),
+        },
+      ],
+    };
+  }
+
+  return {};
+});
+
+useHead(headData);
 </script>
 
 <template>

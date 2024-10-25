@@ -13,6 +13,62 @@ const getNewsCategoryApi = useNewsCategory();
 const { data: newsCategory } = useAsyncData("category", () =>
   getNewsCategoryApi.getNewsCategoryPage(route.params.slug)
 );
+
+// for seo. script application json
+const inLanguage = route.name.replace("category-slug___", "");
+const keywords = computed(() => {
+  if (newsCategory.value?.data[0]) {
+    return newsCategory.value?.data[0]?.category?.seo?.keywords
+      .split(",")
+      .map((item) => item.trim())
+      .filter((item) => item);
+  }
+  return [];
+});
+
+const headData = computed(() => {
+  if (newsCategory.value?.data[0]) {
+    return {
+      script: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: `${newsCategory.value?.data[0]?.category?.seo?.title}`,
+            description: `${newsCategory.value?.data[0]?.category?.seo?.description}`,
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `https://toprankings.uz${route.fullPath}`,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Mirjalol Mirxomitov",
+              logo: {
+                "@type": "ImageObject",
+                url: `https://toprankings.uz/logo.jpg`,
+              },
+            },
+            author: {
+              "@type": "Person",
+              name: "Mirjalol Mirxomitov",
+            },
+            datePublished: `${newsCategory.value?.data[0]?.publication_date}`,
+            dateModified: `${newsCategory.value?.data[0]?.publication_date}`,
+            image: `${newsCategory.value?.data[0]?.file}`,
+            articleSection: `${newsCategory.value?.data[0]?.category?.name}`,
+            keywords: `${keywords.value}`,
+            inLanguage: `${inLanguage}`,
+          }),
+        },
+      ],
+    };
+  }
+
+  return {};
+});
+
+useHead(headData);
 </script>
 
 <template>
