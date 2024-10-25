@@ -8,7 +8,7 @@ export const useNewsCategory = () => {
     const res = await $api(`${baseUrl}?cat_slug=${categorySlug}`, {
       method: "POST", // Указываем метод POST
       body: {
-        limit: 5,
+        limit: 6,
         page: 1,
       },
     });
