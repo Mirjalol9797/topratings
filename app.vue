@@ -13,6 +13,10 @@
     <Meta property="twitter:card" content="summary_large_image" />
     <Meta name="copyright" content="copyright © 2024, toprankings.uz" />
     <Meta name="google-adsense-account" content="ca-pub-3990212606361557" />
+    <Meta
+      name="google-site-verification"
+      content="t-rYOcGKlZ66CgBZPwKItfgr6_gwrPw0wyOQ7eDn1-c"
+    />
 
     <Link rel="icon" type="image/x-icon" href="favicon.ico" />
     <Link rel="preload" href="https://fonts.gstatic.com" />
