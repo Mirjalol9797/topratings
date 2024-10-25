@@ -21,7 +21,7 @@ const { data: newsSlug } = useAsyncData("slug", () =>
     <div class="site-container">
       <div class="flex 768:flex-col">
         <div class="w-[68%] 768:w-full 768:mb-14">
-          <h1 class="font-bold text-3xl mb-5 title 768:mb-4 768:text-lg">
+          <h1 class="font-bold text-2xl mb-5 title 768:mb-4 768:text-lg">
             {{ newsSlug?.title }}
           </h1>
           <div
