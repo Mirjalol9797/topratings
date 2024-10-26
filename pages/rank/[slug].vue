@@ -168,6 +168,9 @@ useHead(headData);
     iframe {
       width: 100%;
     }
+    img {
+      width: 100%;
+    }
   }
 }
 </style>
