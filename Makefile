@@ -1,8 +1,9 @@
 build:
-	docker build -t topranking_front .
-rm: 
-	docker rm -f topranking_front
-run:
-	docker run -d -it -p 3002:3000 --name topranking_front topranking_front
-rebuild: rm run
+	yarn build
+start:
+	pm2 start "PORT=3002  node .output/server/index.mjs" --name=toprankings_client
+restart:
+	pm2 restart 3
+rebuild:
+	build start
 
