@@ -5,5 +5,5 @@ start:
 restart:
 	pm2 restart 3
 rebuild:
-	build start
+	build restart
 
