@@ -31,17 +31,17 @@ const { data: newsLittleBanner } = useAsyncData("littleBanner", () =>
 
 // category Игры и Киберспорт
 const { data: newsCategoryIgriKibersport } = useAsyncData("categoryIgry", () =>
-  getNewsCategoryApi.getNewsCategory("igry-i-kibersport")
+  getNewsCategoryApi.getNewsCategory("igry-i-kibersport", 6)
 );
 
 // category Кино и Телевидение
 const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
-  getNewsCategoryApi.getNewsCategory("kino-i-televidenie")
+  getNewsCategoryApi.getNewsCategory("kino-i-televidenie", 6)
 );
 
 // sport
 const { data: newsCategorySport } = useAsyncData("categorySport", () =>
-  getNewsCategoryApi.getNewsCategory("sport")
+  getNewsCategoryApi.getNewsCategory("sport", 10)
 );
 </script>
 
