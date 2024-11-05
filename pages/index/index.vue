@@ -5,34 +5,34 @@ import { useRoute } from "vue-router";
 import { defineAsyncComponent } from "vue";
 
 // components
-// import SliderBanner from "@/components/mainPage/SliderBanner.vue";
-// import BannerBottomBlock from "@/components/mainPage/BannerBottomBlock.vue";
-// import CategoryLeftMain from "@/components/mainPage/CategoryLeftMain.vue";
+import SliderBanner from "@/components/mainPage/SliderBanner.vue";
+import BannerBottomBlock from "@/components/mainPage/BannerBottomBlock.vue";
+import CategoryLeftMain from "@/components/mainPage/CategoryLeftMain.vue";
 import CategoryRightMain from "@/components/mainPage/CategoryRightMain.vue";
 import CategoryDoubleTopMain from "@/components/mainPage/CategoryDoubleTopMain.vue";
-// import CategoryNotMain from "@/components/mainPage/CategoryNotMain.vue";
-// import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
-// import CategoryFullViewMain from "@/components/mainPage/CategoryFullViewMain.vue";
+import CategoryNotMain from "@/components/mainPage/CategoryNotMain.vue";
+import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
+import CategoryFullViewMain from "@/components/mainPage/CategoryFullViewMain.vue";
 import CategoryAllTopMain from "@/components/mainPage/CategoryAllTopMain.vue";
 
-const SliderBanner = defineAsyncComponent(() =>
-  import("@/components/mainPage/SliderBanner.vue")
-);
-const BannerBottomBlock = defineAsyncComponent(() =>
-  import("@/components/mainPage/BannerBottomBlock.vue")
-);
-const CategoryLeftMain = defineAsyncComponent(() =>
-  import("@/components/mainPage/CategoryLeftMain.vue")
-);
-const CategoryNotMain = defineAsyncComponent(() =>
-  import("@/components/mainPage/CategoryNotMain.vue")
-);
-const CategoryLastTen = defineAsyncComponent(() =>
-  import("@/components/mainPage/CategoryLastTen.vue")
-);
-const CategoryFullViewMain = defineAsyncComponent(() =>
-  import("@/components/mainPage/CategoryFullViewMain.vue")
-);
+// const SliderBanner = defineAsyncComponent(() =>
+//   import("@/components/mainPage/SliderBanner.vue")
+// );
+// const BannerBottomBlock = defineAsyncComponent(() =>
+//   import("@/components/mainPage/BannerBottomBlock.vue")
+// );
+// const CategoryLeftMain = defineAsyncComponent(() =>
+//   import("@/components/mainPage/CategoryLeftMain.vue")
+// );
+// const CategoryNotMain = defineAsyncComponent(() =>
+//   import("@/components/mainPage/CategoryNotMain.vue")
+// );
+// const CategoryLastTen = defineAsyncComponent(() =>
+//   import("@/components/mainPage/CategoryLastTen.vue")
+// );
+// const CategoryFullViewMain = defineAsyncComponent(() =>
+//   import("@/components/mainPage/CategoryFullViewMain.vue")
+// );
 
 const { t } = useI18n();
 const getNewsBannerApi = useNewsPlaceInSite();
