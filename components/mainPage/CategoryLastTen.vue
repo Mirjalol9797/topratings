@@ -12,7 +12,7 @@ const { data: newsLatest } = useAsyncData("latest", () =>
   <div class="sticky top-4">
     <div class="main-page-category-title-wrap">
       <div
-        class="bg-[#315efb] font-medium px-2 py-2 rounded-[4px] text-base w-full"
+        class="bg-[#315efb] font-medium px-2 py-2 rounded-[4px] text-white w-full"
       >
         {{ $t("latest") }}
       </div>

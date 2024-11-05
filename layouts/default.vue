@@ -52,7 +52,12 @@ onMounted(() => {
   <UiHLoader v-if="settingsStore.isLoader" />
 
   <div class="site-scroll-top" @click="siteScrollTop">
-    <img src="/icons/header/scroll-top.svg" alt="scroll-top" />
+    <img
+      src="/icons/header/scroll-top.svg"
+      alt="scroll-top"
+      width="24px"
+      height="24px"
+    />
   </div>
 </template>
 
