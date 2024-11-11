@@ -90,7 +90,7 @@ useHead(headData);
           <CategoryLastTen />
         </div>
       </div>
-      <CategoryAllTopMain />
+      <CategoryAllTopMain v-if="false" />
     </div>
   </div>
 
