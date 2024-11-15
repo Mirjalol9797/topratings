@@ -15,25 +15,6 @@ import CategoryLastTen from "@/components/mainPage/CategoryLastTen.vue";
 import CategoryFullViewMain from "@/components/mainPage/CategoryFullViewMain.vue";
 import CategoryAllTopMain from "@/components/mainPage/CategoryAllTopMain.vue";
 
-// const SliderBanner = defineAsyncComponent(() =>
-//   import("@/components/mainPage/SliderBanner.vue")
-// );
-// const BannerBottomBlock = defineAsyncComponent(() =>
-//   import("@/components/mainPage/BannerBottomBlock.vue")
-// );
-// const CategoryLeftMain = defineAsyncComponent(() =>
-//   import("@/components/mainPage/CategoryLeftMain.vue")
-// );
-// const CategoryNotMain = defineAsyncComponent(() =>
-//   import("@/components/mainPage/CategoryNotMain.vue")
-// );
-// const CategoryLastTen = defineAsyncComponent(() =>
-//   import("@/components/mainPage/CategoryLastTen.vue")
-// );
-// const CategoryFullViewMain = defineAsyncComponent(() =>
-//   import("@/components/mainPage/CategoryFullViewMain.vue")
-// );
-
 const { t } = useI18n();
 const getNewsBannerApi = useNewsPlaceInSite();
 const getNewsCategoryApi = useNewsCategory();
@@ -63,6 +44,16 @@ const { data: newsCategoryKinoTelevidenie } = useAsyncData("categoryKino", () =>
 const { data: newsCategorySport } = useAsyncData("categorySport", () =>
   getNewsCategoryApi.getNewsCategory("sport", 10)
 );
+
+if (process.client) {
+  window.yaContextCb = window.yaContextCb || [];
+  window.yaContextCb.push(() => {
+    Ya.Context.AdvManager.render({
+      blockId: "R-A-12892159-1",
+      renderTo: "yandex_rtb_R-A-12892159-1",
+    });
+  });
+}
 </script>
 
 <template>
@@ -100,6 +91,10 @@ const { data: newsCategorySport } = useAsyncData("categorySport", () =>
           <CategoryLastTen />
         </div>
       </div>
+    </div>
+
+    <div class="site-container">
+      <div id="yandex_rtb_R-A-12892159-1"></div>
     </div>
 
     <!-- second column -->

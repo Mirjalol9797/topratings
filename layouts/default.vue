@@ -20,6 +20,19 @@ if (process.client) {
   gtag("js", new Date());
 
   gtag("config", "G-EG248XZFC7");
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  // yandex
+  // Подготовка Yandex.RTB
+  window.yaContextCb = window.yaContextCb || [];
+
+  // Создание тега скрипта
+  const sct = document.createElement("script");
+  sct.src = "https://yandex.ru/ads/system/context.js";
+  sct.async = true;
+
+  // Добавление тега в DOM
+  document.head.appendChild(sct);
 }
 
 function siteScrollTop() {
